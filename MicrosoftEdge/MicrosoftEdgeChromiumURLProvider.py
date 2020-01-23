@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3*
 #
 # Copyright 2020 Ian Cohn <cohnic@gmail.com>
 #
@@ -13,3 +13,12 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
+from autopkglib import Processor, ProcessorError
+import urllib.request as urllib
+
+EDGE_URL_FEED = "https://edgeupdates.microsoft.com/api/products?view=enterprise"
+
+__all__ = ["MicrosoftEdgeChromiumURLProvider"]
+
+class MicrosoftEdgeChromiumURLProvider(Processor)
