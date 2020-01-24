@@ -15,7 +15,7 @@
 # limitations under the License.
 
 from autopkglib import Processor, ProcessorError, URLGetter
-import urllib2 as urllib
+#import urllib2 as urllib
 import json
 
 MSEDGE_URL_FEED = "https://edgeupdates.microsoft.com/api/products?view=enterprise"
@@ -29,7 +29,10 @@ PLATFORM_OPT = [
     # Commenting out 'Any' as it should not be needed in production
     #"Any"
     ]
-ARCHITECTURE_OPT = ["x86","x64"]
+ARCHITECTURE_OPT = [
+    "x86",
+    "x64"
+]
 PRODUCT_OPT = [
     "Dev",
     "Beta",
@@ -40,8 +43,8 @@ PRODUCT_OPT = [
     ]
 
 class MicrosoftEdgeChromiumURLProvider(URLGetter):
-    ("Scrap Microsoft's feed for the url path to the latest release of Microsoft Edge (Chromium).")
-    description = __doc__
+    """Scrap Microsoft's feed for the url path to the latest release of Microsoft Edge (Chromium)."""
+    description = "Provides Download URL for Microsoft Edge"
     input_variables = {
         "PLATFORM": {
             "required": True,
@@ -78,21 +81,18 @@ class MicrosoftEdgeChromiumURLProvider(URLGetter):
         "PublishedTime": {"description": "The time when the installer was published"}
     }
 
+    __doc__ = description
+
     def main(self):
-        self.output("Available Platforms: {}".format(PLATFORM_OPT))
+
         platform = self.env.get("PLATFORM")
 
-        self.output("Available Architectures: {}".format(ARCHITECTURE_OPT))
-        architecture = self.env.get("ARCHITECTURE") or self.input_variables["ARCHITECTURE"]["default"]
+        architecture = self.env.get("ARCHITECTURE", self.input_variables["ARCHITECTURE"]["default"])
 
-        self.output("Available Product Branches: {}".format(PRODUCT_OPT))
-        product = self.env.get("PRODUCT") or self.input_variables["PRODUCT"]["default"]
+        product = self.env.get("PRODUCT", self.input_variables["PRODUCT"]["default"])
 
-        #installer_platform = platform + "-" + architecture + "-" + product
-
-        blob = urllib.urlopen(MSEDGE_URL_FEED)
+        blob = self.download(MSEDGE_URL_FEED)
         feed_json = json.loads(blob)
-        blob.close()
 
         # Select array item by product name
         for item in feed_json:
@@ -108,8 +108,15 @@ class MicrosoftEdgeChromiumURLProvider(URLGetter):
         # Sort releases, and select latest released
         latest_release = sorted(releases, key=lambda x: x["ProductVersion"], reverse=True )[0]
 
+        try:
+            edge_download_url = latest_release["Artifacts"][0]["Location"]
+            edge_version = latest_release["ProductVersion"]
+        except:
+            self.output("Could not locate the download url / version")
+
         # Return Values
-        self.env["url"] = latest_release["Artifacts"][0]["Location"]
+        self.env["url"] = edge_download_url
+        self.env["version"] = edge_version
         self.env["installer_version"] = platform + "-" + architecture + "-v" + latest_release["ProductVersion"] + "-"+ product
         self.env["Hash"] = latest_release["Artifacts"][0]["Hash"]
         self.env["HashAlgorithm"] = latest_release["Artifacts"][0]["HashAlgorithm"]
