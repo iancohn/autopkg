@@ -74,9 +74,8 @@
         <dict>
             <key>Arguments</key>
             <dict>
-                <!--Comment Out bes_overrideurl to create task without payload
                 <key>bes_overrideurl</key>
-                <string>http://bes.win.psu.edu:52311/ManualUploads/PSU-Windows/Microsoft/Edge/%EXENAME%</string>-->
+                <string>http://bes.win.psu.edu:52311/ManualUploads/PSU-Windows/Microsoft/Edge/%EXENAME%</string>
                 <key>bes_filename</key>
                 <string>%SHORTNAME%.msi</string>
                 <!-- Enable to get prefetch from different file
@@ -128,32 +127,39 @@
                         <string>Action1</string>
                         <key>ActionScript</key>
                         <string>
-// Install exe
-wait __Download\%bes_filename% /S
+//Download Installer
+prefetch Edge.msi sha1:%sha1% size:%size% url:%bes_overrideurl% sha256:%sha256%
 
-//set SysMan tracking entry
-regset64 "[HKEY_LOCAL_MACHINE\SOFTWARE\PSU\Sysman\Applications]" "{value of header "Subject" of active action}"="Install/upgrade - {(month of it as two digits &amp; "/" &amp; day_of_month of it as two digits &amp; "/" &amp; year of it as string) of date (local time zone) of now}"</string>
+//Run Installer
+waithidden "{pathname of system folder &amp; "\msiexec.exe"}" /i "{pathname of file whose(name of it as lowercase ends with ".msi") of folder "__Download" of client folder of current site}" /qn /L*v "{(pathname of folder "__BESData\__Global\Logs" of parent folder of client) &amp; "\software_MSEdge.txt"}"
+
+//set SysMan tracking info
+regset64 "[HKEY_LOCAL_MACHINE\SOFTWARE\PSU\Sysman\Applications]" "{value of header "Subject" of active action}"="Install/Upgrade - {(month of it as two digits &amp; "/" &amp; day_of_month of it as two digits &amp; "/" &amp; year of it as string) of date (local time zone) of now}"
+                        </string>
                    </dict>
-                    <key>2</key>
+                    <key>10</key>
                     <dict>
                         <key>Description</key>
                         <array>
                             <string></string>
-                            <string>Install/Upgrade</string>
-                            <string>.</string>
+                            <string>Make available</string>
+                            <string>in Self Service</string>
                         </array>
                         <key>ActionName</key>
                         <string>Action</string>
                         <key>ActionNumber</key>
-                        <string>Action2</string>
+                        <string>Action10</string>
                         <key>ActionScript</key>
                         <string>
+//Download Installer
+prefetch Edge.msi sha1:%sha1% size:%size% url:%bes_overrideurl% sha256:%sha256%
 
-// Install exe
-wait __Download\%bes_filename% /S
+//Run Installer
+waithidden "{pathname of system folder &amp; "\msiexec.exe"}" /i "{pathname of file whose(name of it as lowercase ends with ".msi") of folder "__Download" of client folder of current site}" /qn /L*v "{(pathname of folder "__BESData\__Global\Logs" of parent folder of client) &amp; "\software_MSEdge.txt"}"
 
-//set SysMan tracking entry
-regset64 "[HKEY_LOCAL_MACHINE\SOFTWARE\PSU\Sysman\Applications]" "{value of header "Subject" of active action}"="Install/upgrade - {(month of it as two digits &amp; "/" &amp; day_of_month of it as two digits &amp; "/" &amp; year of it as string) of date (local time zone) of now}"</string>
+//set SysMan tracking info
+regset64 "[HKEY_LOCAL_MACHINE\SOFTWARE\PSU\Sysman\Applications]" "{value of header "Subject" of active action}"="Install/Upgrade - {(month of it as two digits &amp; "/" &amp; day_of_month of it as two digits &amp; "/" &amp; year of it as string) of date (local time zone) of now}"
+</string>
                     </dict>
                </dict>
             </dict>
