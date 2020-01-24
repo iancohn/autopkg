@@ -22,8 +22,24 @@
 			<dict>
 				<key>Processor</key>
 				<string>com.github.iancohn.SharedProcessors/MicrosoftEdgeChromiumURLProvider</string>
+				<key>Arguments</key>
+				<dict>
+					<key>PLATFORM</key>
+					<string>%PLATFORM%</string>
+					<key>ARCHITECTURE</key>
+					<string>%ARCHITECTURE%</string>
+					<key>PRODUCT</key>
+					<string>%PRODUCT%</string>
+				</dict>
 				<key>Processor</key>
 				<string>URLDownloader</string>
+				<key>Arguments</key>
+				<dict>
+					<key>url</key>
+					<string>%url%</string>
+					<key>filename</key>
+					<string>%installer_version%.%installer_type%</string>
+				</dict>
 				<key>Processor</key>
 				<string>EndOfCheckPhase</string>
 			</dict>
