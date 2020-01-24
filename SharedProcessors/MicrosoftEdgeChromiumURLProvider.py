@@ -107,12 +107,6 @@ class MicrosoftEdgeChromiumURLProvider(URLGetter):
         # Sort releases, and select latest released
         latest_release = sorted(releases, key=lambda x: x["ProductVersion"], reverse=True )[0]
 
-    #    try:
-    #        edge_download_url = latest_release["Artifacts"][0]["Location"]
-    #        edge_version = latest_release["ProductVersion"]
-    #    except:
-    #        self.output("Could not locate the download url / version")
-
         # Return Values
         self.env["url"] = latest_release["Artifacts"][0]["Location"]
         self.env["version"] = latest_release["ProductVersion"]
@@ -122,10 +116,6 @@ class MicrosoftEdgeChromiumURLProvider(URLGetter):
         self.env["SizeInBytes"] = latest_release["Artifacts"][0]["SizeInBytes"]
         self.env["installer_type"] = latest_release["Artifacts"][0]["ArtifactName"]
         self.env["PublishedTime"] = latest_release["PublishedTime"]
-
-        self.output(
-            "Got URL %s from Microsoft for package '%s':" % (self.env["url"], self.env["version"])
-        )
 
 if __name__ == "__main__":
     PROCESSOR = MicrosoftEdgeChromiumURLProvider()
