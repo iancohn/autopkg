@@ -107,15 +107,15 @@ class MicrosoftEdgeChromiumURLProvider(URLGetter):
         # Sort releases, and select latest released
         latest_release = sorted(releases, key=lambda x: x["ProductVersion"], reverse=True )[0]
 
-        try:
-            edge_download_url = latest_release["Artifacts"][0]["Location"]
-            edge_version = latest_release["ProductVersion"]
-        except:
-            self.output("Could not locate the download url / version")
+    #    try:
+    #        edge_download_url = latest_release["Artifacts"][0]["Location"]
+    #        edge_version = latest_release["ProductVersion"]
+    #    except:
+    #        self.output("Could not locate the download url / version")
 
         # Return Values
-        self.env["url"] = edge_download_url
-        self.env["version"] = edge_version
+        self.env["url"] = latest_release["Artifacts"][0]["Location"]
+        self.env["version"] = latest_release["ProductVersion"]
         self.env["installer_version"] = platform + "-" + architecture + "-v" + latest_release["ProductVersion"] + "-"+ product
         self.env["Hash"] = latest_release["Artifacts"][0]["Hash"]
         self.env["HashAlgorithm"] = latest_release["Artifacts"][0]["HashAlgorithm"]
@@ -123,9 +123,9 @@ class MicrosoftEdgeChromiumURLProvider(URLGetter):
         self.env["installer_type"] = latest_release["Artifacts"][0]["ArtifactName"]
         self.env["PublishedTime"] = latest_release["PublishedTime"]
 
-    #    self.output(
-    #        "Got URL %s from Microsoft for package '%s':" % (self.env["url"], self.env["installer_version"])
-    #    )
+        self.output(
+            "Got URL %s from Microsoft for package '%s':" % (self.env["url"], self.env["version"])
+        )
 
 if __name__ == "__main__":
     PROCESSOR = MicrosoftEdgeChromiumURLProvider()
