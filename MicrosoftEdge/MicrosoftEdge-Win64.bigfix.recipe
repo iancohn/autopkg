@@ -74,9 +74,9 @@
         <dict>
             <key>Arguments</key>
             <dict>
-                <!--Comment Out bes_overrideurl to create task without payload-->
+                <!--Comment Out bes_overrideurl to create task without payload
                 <key>bes_overrideurl</key>
-                <string>http://bes.win.psu.edu:52311/ManualUploads/PSU-Windows/%SHORTNAME%/%EXENAME%</string>
+                <string>http://bes.win.psu.edu:52311/ManualUploads/PSU-Windows/Microsoft/Edge/%EXENAME%</string>-->
                 <key>bes_filename</key>
                 <string>%SHORTNAME%.msi</string>
                 <!-- Enable to get prefetch from different file
@@ -108,6 +108,7 @@
                 <key>bes_relevance</key>
                 <array>
                     <string>windows of operating system</string>
+                    <string>x64 of operating system</string>
                     <string>not member of group 47448 /*CLM Division*/ of sites</string>
                     <string>not exists key whose (value "DisplayName" of it as string contains "%NAME%" AND (it &gt;= "%version%" as version) of (value "DisplayVersion" of it as string as version)) of key "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall" of registry</string>
                 </array>
