@@ -98,13 +98,13 @@ class MicrosoftEdgeChromiumURLProvider(URLGetter):
         for item in feed_json:
             if item["Product"] == product:
                 selected_product = item["Releases"]
-
+        self.output("Selected product")
         # Select Architecture and and Platform
         releases = []
         for release in selected_product:
             if ((release["Platform"] == platform ) and (release["Architecture"] == architecture)):
                 releases += release
-
+        self.output("Selected release")
         # Sort releases, and select latest released
         latest_release = sorted(releases, key=lambda x: x["ProductVersion"], reverse=True )[0]
 
