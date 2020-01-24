@@ -42,9 +42,11 @@
 					<key>filename</key>
 					<string>%installer_version%.%installer_type%</string>
 				</dict>
+			</dict>
+			<dict>
 				<key>Processor</key>
 				<string>EndOfCheckPhase</string>
-				</dict>
+			</dict>
 		</array>
 	</dict>
 </plist>
