@@ -97,7 +97,7 @@ class MicrosoftEdgeChromiumURLProvider(URLGetter):
         # Select array item by product name
         for item in feed_json:
             if item["Product"] == product:
-                selected_product = item
+                selected_product = item["Releases"]
 
         # Select Architecture and and Platform
         releases = []
