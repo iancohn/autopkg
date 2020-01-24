@@ -22,6 +22,10 @@
 			<dict>
 				<key>Processor</key>
 				<string>com.github.iancohn.SharedProcessors/MicrosoftEdgeChromiumURLProvider</string>
+				<key>Processor</key>
+				<string>URLDownloader</string>
+				<key>Processor</key>
+				<string>EndOfCheckPhase</string>
 			</dict>
 		</array>
 	</dict>
