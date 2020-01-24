@@ -38,7 +38,7 @@ PRODUCT_OPT = [
     # "Policy"
     ]
 
-class MicrosoftEdgeChromiumURLProvider(Processor)
+class MicrosoftEdgeChromiumURLProvider(Processor):
     ("Scrap Microsoft's feed for the url path to the latest release of Microsoft Edge (Chromium).")
     description = __doc__
     input_variables = {
