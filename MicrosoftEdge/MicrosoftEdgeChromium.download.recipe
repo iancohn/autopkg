@@ -17,8 +17,6 @@
 		</dict>
 		<key>MinimumVersion</key>
 		<string>1.0</string>
-		<key>ParentRecipe</key>
-		<string>com.github.n8felton.download.MicrosoftEdge</string>
 		<key>Process</key>
 		<array>
 			<dict>
