@@ -103,7 +103,7 @@ class MicrosoftEdgeChromiumURLProvider(URLGetter):
         releases = []
         for release in selected_product:
             if ((release["Platform"] == platform ) and (release["Architecture"] == architecture)):
-                releases.add(release)
+                releases += release
 
         # Sort releases, and select latest released
         latest_release = sorted(releases, key=lambda x: x["ProductVersion"], reverse=True )[0]
