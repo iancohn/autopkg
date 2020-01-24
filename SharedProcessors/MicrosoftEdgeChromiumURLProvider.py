@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from autopkglib import Processor, ProcessorError
+from autopkglib import Processor, ProcessorError, URLGetter
 import urllib2 as urllib
 import json
 
@@ -39,7 +39,7 @@ PRODUCT_OPT = [
     # "Policy"
     ]
 
-class MicrosoftEdgeChromiumURLProvider(Processor):
+class MicrosoftEdgeChromiumURLProvider(URLGetter):
     ("Scrap Microsoft's feed for the url path to the latest release of Microsoft Edge (Chromium).")
     description = __doc__
     input_variables = {
