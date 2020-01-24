@@ -110,12 +110,16 @@ class MicrosoftEdgeChromiumURLProvider(Processor):
 
         # Return Values
         self.env["url"] = latest_release["Artifacts"][0]["Location"]
-        self.env["installer_version"] = platform + "-" + architecture + "-v" + latest_release["ProductVersion"] + "-"+ product
+        self.env["installer_version"] = str(platform + "-" + architecture + "-v" + latest_release["ProductVersion"] + "-"+ product)
         self.env["Hash"] = latest_release["Artifacts"][0]["Hash"]
         self.env["HashAlgorithm"] = latest_release["Artifacts"][0]["HashAlgorithm"]
         self.env["SizeInBytes"] = latest_release["Artifacts"][0]["SizeInBytes"]
         self.env["installer_type"] = latest_release["Artifacts"][0]["ArtifactName"]
         self.env["PublishedTime"] = latest_release["PublishedTime"]
+
+        self.output(
+            "Got URL %s from Microsoft for package '%s':" % (self.env["url"], self.env["installer_version"])
+        )
 
 if __name__ == "__main__":
     PROCESSOR = MicrosoftEdgeChromiumURLProvider()
