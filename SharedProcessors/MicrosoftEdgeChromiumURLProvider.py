@@ -1,4 +1,4 @@
-#!/usr/bin/python3*
+#!/usr/bin/python
 #
 # Copyright 2020 Ian Cohn <cohnic@gmail.com>
 #
@@ -15,7 +15,8 @@
 # limitations under the License.
 
 from autopkglib import Processor, ProcessorError
-import urllib.request as urllib
+import urllib2 as urllib
+import json
 
 MSEDGE_URL_FEED = "https://edgeupdates.microsoft.com/api/products?view=enterprise"
 
