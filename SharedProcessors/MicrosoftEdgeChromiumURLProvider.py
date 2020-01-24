@@ -109,7 +109,7 @@ class MicrosoftEdgeChromiumURLProvider(URLGetter):
         latest_release = sorted(releases, key=lambda x: x["ProductVersion"], reverse=True )[0]
 
         try:
-            edge_download_url = latest_release["Artifacts"][0]["Location"]
+            edge_download_url = latest_release["Artifacts"]["Location"]
             edge_version = latest_release["ProductVersion"]
         except:
             self.output("Could not locate the download url / version")
