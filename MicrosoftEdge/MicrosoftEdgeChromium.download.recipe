@@ -21,7 +21,7 @@
 		<array>
 			<dict>
 				<key>Processor</key>
-				<string>MicrosoftEdgeChromiumURLProvider</string>
+				<string>com.github.iancohn.MicrosoftEdgeChromium/MicrosoftEdgeChromiumURLProvider</string>
 			</dict>
 		</array>
 	</dict>
