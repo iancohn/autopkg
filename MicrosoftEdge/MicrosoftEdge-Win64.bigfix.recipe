@@ -36,7 +36,7 @@
           </BLOCKQUOTE>
           <STRONG><P><FONT size=3>About This Task</FONT></P></STRONG>
           <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
-            <P>This task will install/upgrade: %NAME% %version% <BR></P>
+            <P>This task will install/upgrade: %NAME% %bes_version% <BR></P>
             <P>This task is applicable on: Windows</P>
           </BLOCKQUOTE>
           <P><FONT size=3><STRONG>Action Description</STRONG></FONT></P>
