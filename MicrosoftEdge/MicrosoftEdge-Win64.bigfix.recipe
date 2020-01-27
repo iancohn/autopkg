@@ -13,7 +13,7 @@
         <key>SHORTNAME</key>
         <string>Microsoft-Edge</string>
         <key>EXENAME</key>
-        <string>%SHORTNAME%-%version%.exe</string>
+        <string>%SHORTNAME%-%version%.%installer_type%</string>
         <key>bes_icon</key>
         <string>http://bes.win.psu.edu:52311/ManualUploads/PSU/Icons/Microsoft-Edge.png</string>
         <key>OfferCategory</key>
@@ -30,13 +30,13 @@
         <string>DefaultAction</string>
         <key>DESCRIPTION</key>
         <string><![CDATA[<DIV class=subsection>
-          <P><FONT size=3><STRONG>About&nbsp;%NAME%</STRONG></FONT></P><FONT size=2>
+          <P><FONT size=3><STRONG>About&nbsp;%NAME% </STRONG></FONT></P><FONT size=2>
           <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
             <P>%OfferDescriptionHTML% </P>
           </BLOCKQUOTE>
           <STRONG><P><FONT size=3>About This Task</FONT></P></STRONG>
           <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
-            <P>This task will install/upgrade: %NAME% %version%<BR></P>
+            <P>This task will install/upgrade: %NAME% %version% <BR></P>
             <P>This task is applicable on: Windows</P>
           </BLOCKQUOTE>
           <P><FONT size=3><STRONG>Action Description</STRONG></FONT></P>
@@ -105,13 +105,11 @@
                         <string>Action1</string>
                         <key>ActionScript</key>
                         <string>
-
 //Run Installer
 waithidden "{pathname of system folder &amp; "\msiexec.exe"}" /i "{pathname of file whose(name of it as lowercase ends with ".msi") of folder "__Download" of client folder of current site}" /qn /L*v "{(pathname of folder "__BESData\__Global\Logs" of parent folder of client) &amp; "\software_MSEdge.txt"}"
 
 //set SysMan tracking info
-regset64 "[HKEY_LOCAL_MACHINE\SOFTWARE\PSU\Sysman\Applications]" "{value of header "Subject" of active action}"="Install/Upgrade - {(month of it as two digits &amp; "/" &amp; day_of_month of it as two digits &amp; "/" &amp; year of it as string) of date (local time zone) of now}"
-                        </string>
+regset64 "[HKEY_LOCAL_MACHINE\SOFTWARE\PSU\Sysman\Applications]" "{value of header "Subject" of active action}"="Install/Upgrade - {(month of it as two digits &amp; "/" &amp; day_of_month of it as two digits &amp; "/" &amp; year of it as string) of date (local time zone) of now}"</string>
                    </dict>
                </dict>
             </dict>
