@@ -160,7 +160,7 @@ regset64 "[HKEY_LOCAL_MACHINE\SOFTWARE\PSU\Sysman\Applications]" "{value of head
             <key>Processor</key>
             <string>AutoPkgBESEngine</string>
         </dict>
-        <!--<dict>
+        <dict>
             <key>Processor</key>
             <string>BESImporter</string>
             <key>Arguments</key>
@@ -170,7 +170,7 @@ regset64 "[HKEY_LOCAL_MACHINE\SOFTWARE\PSU\Sysman\Applications]" "{value of head
                 <key>bes_customsite</key>
                 <string>SysManDev</string>
             </dict>
-        </dict>-->
+        </dict>
     </array>
 </dict>
 </plist>
