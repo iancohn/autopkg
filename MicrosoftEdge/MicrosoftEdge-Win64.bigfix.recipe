@@ -12,6 +12,8 @@
         <string>Microsoft Edge</string>
         <key>SHORTNAME</key>
         <string>Microsoft-Edge</string>
+        <key>EXENAME</key>
+        <string>%SHORTNAME%-%version%.%installer_type.msi</string>
         <key>bes_icon</key>
         <string>http://bes.win.psu.edu:52311/ManualUploads/PSU/Icons/Microsoft-Edge.png</string>
         <key>OfferCategory</key>
@@ -60,21 +62,17 @@
                 <string>%pathname%</string>
                 <key>destination_path</key>
                 <string>/Volumes/ManualUploads$/PSU-Windows/Microsoft/Edge/</string>
-                <key>EXENAME</key>
-                <string>%SHORTNAME%-%version%.%installer_type%</string>
             </dict>
         </dict>
         <dict>
             <key>Arguments</key>
             <dict>
-                <key>newVar</key>
-                <string>%EXENAME%</string>
                 <!--<key>EXENAME</key>
                 <string>%SHORTNAME%-%version%.%installer_type%</string>-->
                 <key>bes_overrideurl</key>
                 <string>http://bes.win.psu.edu:52311/ManualUploads/PSU-Windows/Microsoft/Edge/%SHORTNAME%-%version%.%installer_type%</string>
                 <key>bes_filename</key>
-                <string>%SHORTNAME%.msi</string>
+                <string>%EXENAME%</string>
                 <!-- Enable to get prefetch from different file
                 <key>bes_softwareinstaller</key>
                 <string>%SHORTNAME%.exe</string>-->
