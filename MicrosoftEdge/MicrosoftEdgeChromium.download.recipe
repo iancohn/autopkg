@@ -22,7 +22,6 @@
 			<dict>
 				<key>Processor</key>
 				<string>com.github.iancohn.SharedProcessors/MicrosoftEdgeChromiumURLProvider</string>
-				<key>Arguments</key>
 			</dict>
 			<dict>
 				<key>Processor</key>
