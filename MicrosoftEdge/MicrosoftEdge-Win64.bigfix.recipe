@@ -12,12 +12,6 @@
         <string>Microsoft Edge</string>
         <key>SHORTNAME</key>
         <string>Microsoft-Edge</string>
-        <key>PLATFORM</key>
-        <string>Windows</string>
-        <key>ARCHITECTURE</key>
-        <string>x64</string>
-        <key>PRODUCT</key>
-        <string>Stable</string>
         <key>bes_icon</key>
         <string>http://bes.win.psu.edu:52311/ManualUploads/PSU/Icons/Microsoft-Edge.png</string>
         <key>OfferCategory</key>
@@ -56,40 +50,10 @@
     </dict>
     <key>MinimumVersion</key>
     <string>1.4.0</string>
-<!-- Uncomment this to point to a download recipe    <key>ParentRecipe</key>
-    <string>edu.psu.download.EXAMPLE</string>-->
+    <key>ParentRecipe</key>
+    <string>com.github.iancohn.MicrosoftEdgeChromium<</string>
     <key>Process</key>
     <array>
-        <dict>
-          <key>Processor</key>
-          <string>com.github.iancohn.SharedProcessors/MicrosoftEdgeChromiumURLProvider</string>
-          <key>Arguments</key>
-          <dict>
-            <key>PLATFORM</key>
-            <string>%PLATFORM%</string>
-            <key>ARCHITECTURE</key>
-            <string>%ARCHITECTURE%</string>
-            <key>PRODUCT</key>
-            <string>%PRODUCT%</string>
-          </dict>
-        </dict>
-        <dict>
-          <key>Processor</key>
-          <string>URLDownloader</string>
-          <key>Arguments</key>
-          <dict>
-            <key>url</key>
-            <string>%url%</string>
-            <key>version</key>
-            <string>%version%</string>
-            <key>filename</key>
-            <string>%installer_version%.%installer_type%</string>
-          </dict>
-        </dict>
-        <!--<dict>
-            <key>Processor</key>
-            <string>EndOfCheckPhase</string>
-        </dict>-->
         <dict>
             <key>Processor</key>
             <string>Copier</string>
@@ -160,7 +124,7 @@
                         <key>ActionScript</key>
                         <string>
 //Download Installer
-prefetch Edge.msi sha1:%sha1% size:%size% url:%bes_overrideurl% sha256:%sha256%
+prefetch Edge.msi size:%size% url:%bes_overrideurl% sha256:%sha256%
 
 //Run Installer
 waithidden "{pathname of system folder &amp; "\msiexec.exe"}" /i "{pathname of file whose(name of it as lowercase ends with ".msi") of folder "__Download" of client folder of current site}" /qn /L*v "{(pathname of folder "__BESData\__Global\Logs" of parent folder of client) &amp; "\software_MSEdge.txt"}"
