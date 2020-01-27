@@ -12,6 +12,8 @@
         <string>Microsoft Edge</string>
         <key>SHORTNAME</key>
         <string>Microsoft-Edge</string>
+        <key>EXENAME</key>
+        <string>%SHORTNAME%-%version%.exe</string>
         <key>bes_icon</key>
         <string>http://bes.win.psu.edu:52311/ManualUploads/PSU/Icons/Microsoft-Edge.png</string>
         <key>OfferCategory</key>
@@ -121,8 +123,6 @@
                         <string>Action1</string>
                         <key>ActionScript</key>
                         <string>
-//Download Installer
-prefetch Edge.msi size:%size% url:%bes_overrideurl% sha256:%sha256%
 
 //Run Installer
 waithidden "{pathname of system folder &amp; "\msiexec.exe"}" /i "{pathname of file whose(name of it as lowercase ends with ".msi") of folder "__Download" of client folder of current site}" /qn /L*v "{(pathname of folder "__BESData\__Global\Logs" of parent folder of client) &amp; "\software_MSEdge.txt"}"
@@ -145,8 +145,6 @@ regset64 "[HKEY_LOCAL_MACHINE\SOFTWARE\PSU\Sysman\Applications]" "{value of head
                         <string>Action10</string>
                         <key>ActionScript</key>
                         <string>
-//Download Installer
-prefetch Edge.msi sha1:%sha1% size:%size% url:%bes_overrideurl% sha256:%sha256%
 
 //Run Installer
 waithidden "{pathname of system folder &amp; "\msiexec.exe"}" /i "{pathname of file whose(name of it as lowercase ends with ".msi") of folder "__Download" of client folder of current site}" /qn /L*v "{(pathname of folder "__BESData\__Global\Logs" of parent folder of client) &amp; "\software_MSEdge.txt"}"
