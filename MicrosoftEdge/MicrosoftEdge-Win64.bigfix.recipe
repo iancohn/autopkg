@@ -12,8 +12,6 @@
         <string>Microsoft Edge</string>
         <key>SHORTNAME</key>
         <string>Microsoft-Edge</string>
-        <key>EXENAME</key>
-        <string>%version%.msi</string>
         <key>bes_icon</key>
         <string>http://bes.win.psu.edu:52311/ManualUploads/PSU/Icons/Microsoft-Edge.png</string>
         <key>OfferCategory</key>
@@ -67,6 +65,8 @@
         <dict>
             <key>Arguments</key>
             <dict>
+                <key>EXENAME</key>
+                <string>%SHORTNAME%-%version%.%installer_type%</string>
                 <key>bes_overrideurl</key>
                 <string>http://bes.win.psu.edu:52311/ManualUploads/PSU-Windows/Microsoft/Edge/%EXENAME%</string>
                 <key>bes_filename</key>
