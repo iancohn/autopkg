@@ -60,11 +60,15 @@
                 <string>%pathname%</string>
                 <key>destination_path</key>
                 <string>/Volumes/ManualUploads$/PSU-Windows/Microsoft/Edge/</string>
+                <key>EXENAME</key>
+                <string>%SHORTNAME%-%version%.%installer_type%</string>
             </dict>
         </dict>
         <dict>
             <key>Arguments</key>
             <dict>
+                <key>newVar</key>
+                <string>%EXENAME%</string>
                 <!--<key>EXENAME</key>
                 <string>%SHORTNAME%-%version%.%installer_type%</string>-->
                 <key>bes_overrideurl</key>
