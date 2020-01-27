@@ -12,6 +12,12 @@
         <string>Microsoft Edge</string>
         <key>SHORTNAME</key>
         <string>Microsoft-Edge</string>
+        <key>ARCHITECTURE</key>
+        <string>x64</string>
+        <key>PLATFORM</key>
+        <string>Windows</string>
+        <key>PRODUCT</key>
+        <string>Stable</string>
         <key>bes_icon</key>
         <string>http://bes.win.psu.edu:52311/ManualUploads/PSU/Icons/Microsoft-Edge.png</string>
         <key>OfferCategory</key>
@@ -48,7 +54,7 @@
     <key>MinimumVersion</key>
     <string>1.4.0</string>
     <key>ParentRecipe</key>
-    <string>com.github.iancohn.MicrosoftEdge</string>
+    <string>com.github.iancohn.download.MicrosoftEdge</string>
     <key>Process</key>
     <array>
         <dict>
@@ -77,7 +83,7 @@
                 <key>bes_version</key>
                 <string>%version%</string>
                 <key>bes_title</key>
-                <string>Install/Upgrade: %NAME% %version% - Windows</string>
+                <string>Install/Upgrade: %NAME% %version% - %PLATFORM%</string>
                 <key>bes_description</key>
                 <string>%DESCRIPTION%</string>
                 <key>bes_category</key>
