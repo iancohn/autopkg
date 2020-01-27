@@ -47,8 +47,7 @@
 <P><FONT size=2>This action installs the application %NAME%.</FONT></P></BLOCKQUOTE></DIV>
 <UL><LI><FONT size=2><STRONG>Action10: Make available in Self Service.</STRONG></FONT></LI></UL>
 <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
-<P><FONT size=2>This action performs the same action as Action1 with Self Service deployment options set.</FONT></P></BLOCKQUOTE></DIV>]]>
-</string>
+<P><FONT size=2>This action performs the same action as Action1 with Self Service deployment options set.</FONT></P></BLOCKQUOTE></DIV>]]></string>
         <key>LICENSE</key>
         <string>%NAME% is freeware.</string>
     </dict>
