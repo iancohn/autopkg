@@ -73,13 +73,13 @@ class MicrosoftEdgeChromiumURLProvider(URLGetter):
     }
     output_variables = {
         "url": {"description": "The URL of the latest released version of the given branch"},
+        "version": {"description": "The version of the installer"},
         "installer_version": {"description": "Platform and version details as a concatenated string."},
         "Hash": {"description": "The value of the installer hash"},
         "HashAlgorithm": {"description": "The algorithm type of the hash"},
         "SizeInBytes": {"description": "The size in bytes of the installer"},
         "installer_type": {"description": "The file type of the installer"},
-        "PublishedTime": {"description": "The time when the installer was published"},
-        "version": {"description": "The version of the installer"}
+        "PublishedTime": {"description": "The time when the installer was published"}
     }
 
     __doc__ = description
