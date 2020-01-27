@@ -78,7 +78,8 @@ class MicrosoftEdgeChromiumURLProvider(URLGetter):
         "HashAlgorithm": {"description": "The algorithm type of the hash"},
         "SizeInBytes": {"description": "The size in bytes of the installer"},
         "installer_type": {"description": "The file type of the installer"},
-        "PublishedTime": {"description": "The time when the installer was published"}
+        "PublishedTime": {"description": "The time when the installer was published"},
+        "version": {"description": "The version of the installer"}
     }
 
     __doc__ = description
