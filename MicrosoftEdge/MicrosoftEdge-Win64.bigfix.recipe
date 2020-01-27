@@ -12,8 +12,6 @@
         <string>Microsoft Edge</string>
         <key>SHORTNAME</key>
         <string>Microsoft-Edge</string>
-        <key>EXENAME</key>
-        <string>%SHORTNAME%-%version%.msi</string>
         <key>PLATFORM</key>
         <string>Windows</string>
         <key>ARCHITECTURE</key>
@@ -73,6 +71,17 @@
             <string>%ARCHITECTURE%</string>
             <key>PRODUCT</key>
             <string>%PRODUCT%</string>
+          </dict>
+        </dict>
+        <dict>
+          <key>Processor</key>
+          <string>URLDownloader</string>
+          <key>Arguments</key>
+          <dict>
+            <key>url</key>
+            <string>%url%</string>
+            <key>filename</key>
+            <string>%installer_version%.%installer_type%</string>
           </dict>
         </dict>
         <dict>
