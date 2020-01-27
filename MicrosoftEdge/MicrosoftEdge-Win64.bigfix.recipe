@@ -84,10 +84,10 @@
             <string>%installer_version%.%installer_type%</string>
           </dict>
         </dict>
-        <dict>
+        <!--<dict>
             <key>Processor</key>
             <string>EndOfCheckPhase</string>
-        </dict>
+        </dict>-->
         <dict>
             <key>Processor</key>
             <string>Copier</string>
