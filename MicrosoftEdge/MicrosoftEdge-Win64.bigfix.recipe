@@ -80,6 +80,8 @@
           <dict>
             <key>url</key>
             <string>%url%</string>
+            <key>version</key>
+            <string>%version%</string>
             <key>filename</key>
             <string>%installer_version%.%installer_type%</string>
           </dict>
@@ -97,6 +99,8 @@
                 <string>%pathname%</string>
                 <key>destination_path</key>
                 <string>/Volumes/ManualUploads$/PSU-Windows/Microsoft/Edge/</string>
+                <key>version</key>
+                <string>%version%</string>
             </dict>
         </dict>
         <dict>
