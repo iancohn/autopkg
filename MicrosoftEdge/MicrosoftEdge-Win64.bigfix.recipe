@@ -57,7 +57,7 @@
         <string>%NAME% is freeware.</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>79.0.0</string>
+    <string>1.4.0</string>
 <!-- Uncomment this to point to a download recipe    <key>ParentRecipe</key>
     <string>edu.psu.download.EXAMPLE</string>-->
     <key>Process</key>
