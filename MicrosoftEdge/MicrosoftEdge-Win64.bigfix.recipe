@@ -13,7 +13,7 @@
         <key>SHORTNAME</key>
         <string>Microsoft-Edge</string>
         <key>EXENAME</key>
-        <string>%SHORTNAME%-%version%.%installer_type%</string>
+        <string>%version%.msi</string>
         <key>bes_icon</key>
         <string>http://bes.win.psu.edu:52311/ManualUploads/PSU/Icons/Microsoft-Edge.png</string>
         <key>OfferCategory</key>
