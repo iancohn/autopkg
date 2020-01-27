@@ -11,9 +11,15 @@
         <key>NAME</key>
         <string>Microsoft Edge</string>
         <key>SHORTNAME</key>
-        <string>Microsoft Edge</string>
+        <string>Microsoft-Edge</string>
         <key>EXENAME</key>
         <string>%SHORTNAME%-%version%.msi</string>
+        <key>PLATFORM</key>
+        <string>Windows</string>
+        <key>ARCHITECTURE</key>
+        <string>x64</string>
+        <key>PRODUCT</key>
+        <string>Stable</string>
         <key>bes_icon</key>
         <string>http://bes.win.psu.edu:52311/ManualUploads/PSU/Icons/Microsoft-Edge.png</string>
         <key>OfferCategory</key>
@@ -57,10 +63,23 @@
     <key>Process</key>
     <array>
         <dict>
+          <key>Processor</key>
+          <string>com.github.iancohn.SharedProcessors/MicrosoftEdgeChromiumURLProvider</string>
+          <key>Arguments</key>
+          <dict>
+            <key>PLATFORM</key>
+            <string>%PLATFORM%</string>
+            <key>ARCHITECTURE</key>
+            <string>%ARCHITECTURE%</string>
+            <key>PRODUCT</key>
+            <string>%PRODUCT%</string>
+          </dict>
+        </dict>
+        <dict>
             <key>Processor</key>
             <string>EndOfCheckPhase</string>
         </dict>
-<!--        <dict>
+        <dict>
             <key>Processor</key>
             <string>Copier</string>
             <key>Arguments</key>
@@ -70,7 +89,7 @@
                 <key>destination_path</key>
                 <string>/Volumes/ManualUploads$/PSU-Windows/Microsoft/Edge/</string>
             </dict>
-        </dict>-->
+        </dict>
         <dict>
             <key>Arguments</key>
             <dict>
@@ -159,7 +178,7 @@ waithidden "{pathname of system folder &amp; "\msiexec.exe"}" /i "{pathname of f
 
 //set SysMan tracking info
 regset64 "[HKEY_LOCAL_MACHINE\SOFTWARE\PSU\Sysman\Applications]" "{value of header "Subject" of active action}"="Install/Upgrade - {(month of it as two digits &amp; "/" &amp; day_of_month of it as two digits &amp; "/" &amp; year of it as string) of date (local time zone) of now}"
-</string>
+                        </string>
                     </dict>
                </dict>
             </dict>
