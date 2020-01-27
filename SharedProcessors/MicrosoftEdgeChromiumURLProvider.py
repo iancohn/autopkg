@@ -20,7 +20,7 @@ import json
 
 MSEDGE_URL_FEED = "https://edgeupdates.microsoft.com/api/products?view=enterprise"
 
-__all__ = ["MicrosoftEdgeChromiumURLProvider"]
+__all__ = ["MicrosoftEdgeURLProvider"]
 
 #Define Options
 PLATFORM_OPT = [
@@ -42,7 +42,7 @@ PRODUCT_OPT = [
     # "Policy"
     ]
 
-class MicrosoftEdgeChromiumURLProvider(URLGetter):
+class MicrosoftEdgeURLProvider(URLGetter):
     """Scrap Microsoft's feed for the url path to the latest release of Microsoft Edge (Chromium)."""
     description = "Provides Download URL for Microsoft Edge"
     input_variables = {
@@ -119,5 +119,5 @@ class MicrosoftEdgeChromiumURLProvider(URLGetter):
         self.env["PublishedTime"] = latest_release["PublishedTime"]
 
 if __name__ == "__main__":
-    PROCESSOR = MicrosoftEdgeChromiumURLProvider()
+    PROCESSOR = MicrosoftEdgeURLProvider()
     PROCESSOR.execute_shell()

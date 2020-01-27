@@ -5,7 +5,7 @@
 		<key>Description</key>
 		<string>Downloads the latest version of Microsoft Edge for the indicated platorm and branch</string>
 		<key>Identifier</key>
-		<string>com.github.iancohn.MicrosoftEdgeChromium</string>
+		<string>com.github.iancohn.MicrosoftEdge</string>
 		<key>Input</key>
 		<dict>
 			<key>PLATFORM</key>
@@ -21,7 +21,7 @@
 		<array>
 			<dict>
 				<key>Processor</key>
-				<string>com.github.iancohn.SharedProcessors/MicrosoftEdgeChromiumURLProvider</string>
+				<string>com.github.iancohn.SharedProcessors/MicrosoftEdgeURLProvider</string>
 			</dict>
 			<dict>
 				<key>Processor</key>
