@@ -65,12 +65,12 @@
         <dict>
             <key>Arguments</key>
             <dict>
-                <key>EXENAME</key>
+                <key>INSTALLER_NAME</key>
                 <string>%SHORTNAME%-%version%.%installer_type%</string>
                 <key>bes_overrideurl</key>
-                <string>http://bes.win.psu.edu:52311/ManualUploads/PSU-Windows/Microsoft/Edge/%SHORTNAME%-%version%.%installer_type%</string>
+                <string>http://bes.win.psu.edu:52311/ManualUploads/PSU-Windows/Microsoft/Edge/%INSTALLER_NAME%</string>
                 <key>bes_filename</key>
-                <string>%EXENAME%</string>
+                <string>%INSTALLER_NAME%</string>
                 <!-- Enable to get prefetch from different file
                 <key>bes_softwareinstaller</key>
                 <string>%SHORTNAME%.exe</string>-->
