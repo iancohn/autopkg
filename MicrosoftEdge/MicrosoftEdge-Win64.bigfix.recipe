@@ -5,7 +5,7 @@
     <key>Description</key>
     <string>Creates .bes file for Microsoft Edge installer and uploads it to BigFix</string>
     <key>Identifier</key>
-    <string>edu.psu.bigfix.msedge-win</string>
+    <string>edu.psu.bigfix.msedge-win64</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
