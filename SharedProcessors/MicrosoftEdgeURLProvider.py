@@ -94,12 +94,12 @@ class MicrosoftEdgeURLProvider(URLGetter):
         architecture = self.env.get("ARCHITECTURE", self.input_variables["ARCHITECTURE"]["default"])
         product = self.env.get("PRODUCT", self.input_variables["PRODUCT"]["default"])
 
-        self.output("Retrieving URL Feed from %s.") % MSEDGE_URL_FEED
+        self.output("Retrieving URL Feed from %s." % MSEDGE_URL_FEED)
 
         blob = self.download(MSEDGE_URL_FEED)
         feed_json = json.loads(blob)
 
-        self.output("Extracting JSON Values for %s - %s - %s") % platform, architecture, product
+        self.output("Extracting JSON Values for %s - %s - %s" % (platform, architecture, product))
 
         try:
         # Select array item by product name
