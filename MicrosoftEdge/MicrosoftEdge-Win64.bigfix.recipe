@@ -55,11 +55,11 @@
           <UL><LI><FONT size=2><STRONG>Action1: Install/upgrade.</STRONG></FONT></LI></UL><BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
           <P><FONT size=2>This action installs the application  %NAME%.</FONT></P></BLOCKQUOTE></DIV>
           <UL><LI><FONT size=2><STRONG>Action10: Make available in Self Service.</STRONG></FONT></LI></UL><BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
-          <P><FONT size=2>This action performs the same action as Action1 with Self Service deployment options set.</FONT></P></BLOCKQUOTE></DIV>]]>
+          <P><FONT size=2>This action performs the same action as Action1 with Self Service deployment options set.</FONT></P></BLOCKQUOTE>
           <BR><BR>
           <P><FONT color=#0080ff size=3><STRONG>Licensing</STRONG></FONT></P>
           <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr><FONT size=3>
-          <P><FONT size=3>Microsoft Edge&nbsp;is freeware.</FONT></P></FONT></BLOCKQUOTE>]]></string>
+          <P><FONT size=3>Microsoft Edge&nbsp;is freeware.</FONT></P></FONT></BLOCKQUOTE></DIV>]]></string>
         <key>LICENSE</key>
         <string>%NAME% is freeware.</string>
         <key>OfferDescriptionHTML</key>
