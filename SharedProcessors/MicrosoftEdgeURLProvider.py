@@ -79,7 +79,8 @@ class MicrosoftEdgeURLProvider(URLGetter):
         "HashAlgorithm": {"description": "The algorithm type of the hash"},
         "SizeInBytes": {"description": "The size in bytes of the installer"},
         "installer_type": {"description": "The file type of the installer"},
-        "PublishedTime": {"description": "The time when the installer was published"}
+        "PublishedTime": {"description": "The time when the installer was published"},
+        "bes_installer_name": {"description": "BES Installer file name"}
     }
 
     __doc__ = description
@@ -117,6 +118,7 @@ class MicrosoftEdgeURLProvider(URLGetter):
         self.env["SizeInBytes"] = latest_release["Artifacts"][0]["SizeInBytes"]
         self.env["installer_type"] = latest_release["Artifacts"][0]["ArtifactName"]
         self.env["PublishedTime"] = latest_release["PublishedTime"]
+        self.env["bes_installer_name"] = ""
 
 if __name__ == "__main__":
     PROCESSOR = MicrosoftEdgeURLProvider()
