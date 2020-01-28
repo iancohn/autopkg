@@ -14,7 +14,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+#Factored for Python 3
 from __future__ import absolute_import
+
+
 from autopkglib import Processor, ProcessorError, URLGetter
 import json
 
@@ -88,37 +91,51 @@ class MicrosoftEdgeURLProvider(URLGetter):
     def main(self):
 
         platform = self.env.get("PLATFORM")
-
         architecture = self.env.get("ARCHITECTURE", self.input_variables["ARCHITECTURE"]["default"])
-
         product = self.env.get("PRODUCT", self.input_variables["PRODUCT"]["default"])
+
+        self.output("Retrieving URL Feed from %s.") % MSEDGE_URL_FEED
 
         blob = self.download(MSEDGE_URL_FEED)
         feed_json = json.loads(blob)
 
+        self.output("Extracting JSON Values for %s - %s - %s") % (platform, architecture, product)
+
+        try:
         # Select array item by product name
-        for item in feed_json:
-            if item["Product"] == product:
-                selected_product = item["Releases"]
-        self.output("Selected product")
+            for item in feed_json:
+                if item["Product"] == product:
+                    selected_product = item["Releases"]
+            self.output("Selected product")
         # Select Architecture and and Platform
-        releases = []
-        for release in selected_product:
-            if ((release["Platform"] == platform ) and (release["Architecture"] == architecture)):
-                releases.append(release)
+            releases = []
+            for release in selected_product:
+                if ((release["Platform"] == platform ) and (release["Architecture"] == architecture)):
+                    releases.append(release)
         # Sort releases, and select latest released
-        latest_release = sorted(releases, key=lambda x: x["ProductVersion"], reverse=True )[0]
+            latest_release = sorted(releases, key=lambda x: x["ProductVersion"], reverse=True )[0]
+            url = latest_release["Artifacts"][0]["Location"]
+            version = latest_release["ProductVersion"]
+            installer_version = platform + "-" + architecture + "-v" + latest_release["ProductVersion"] + "-"+ product
+            installer_type = latest_release["Artifacts"][0]["ArtifactName"]
+            Hash = latest_release["Artifacts"][0]["Hash"]
+            HashAlgorithm = latest_release["Artifacts"][0]["HashAlgorithm"]
+            SizeInBytes = latest_release["Artifacts"][0]["SizeInBytes"]
+            PublishedTime = latest_release["PublishedTime"]
+        except Exception as e:
+            self.output("Unexpected JSON encountered.")
+            raise e
 
         # Return Values
-        self.env["url"] = latest_release["Artifacts"][0]["Location"]
-        self.env["version"] = latest_release["ProductVersion"]
-        self.env["installer_version"] = platform + "-" + architecture + "-v" + latest_release["ProductVersion"] + "-"+ product
-        self.env["Hash"] = latest_release["Artifacts"][0]["Hash"]
-        self.env["HashAlgorithm"] = latest_release["Artifacts"][0]["HashAlgorithm"]
-        self.env["SizeInBytes"] = latest_release["Artifacts"][0]["SizeInBytes"]
-        self.env["installer_type"] = latest_release["Artifacts"][0]["ArtifactName"]
-        self.env["PublishedTime"] = latest_release["PublishedTime"]
-        self.env["bes_installer_name"] = "INSTALLERNAME"
+        self.env["url"] = url
+        self.env["version"] = version
+        self.env["installer_version"] = installer_version
+        self.env["Hash"] = Hash
+        self.env["HashAlgorithm"] = HashAlgorithm
+        self.env["SizeInBytes"] = SizeInBytes
+        self.env["installer_type"] = installer_type
+        self.env["PublishedTime"] = PublishedTime
+        self.env["bes_installer_name"] = "PLACEHOLDER"
 
 if __name__ == "__main__":
     PROCESSOR = MicrosoftEdgeURLProvider()
