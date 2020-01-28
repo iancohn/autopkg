@@ -22,34 +22,48 @@
         <string>http://bes.win.psu.edu:52311/ManualUploads/PSU/Icons/Microsoft-Edge.png</string>
         <key>OfferCategory</key>
         <string>Internet &amp; Web</string>
-        <key>OfferDescriptionHTML</key>
-        <string><![CDATA[<STRONG><FONT size=3>About Microsoft Edge</FONT></STRONG>
-<BLOCKQUOTE><FONT size=3></FONT>&nbsp;</BLOCKQUOTE>
-<P><FONT color=#0080ff size=3><STRONG>Licensing</STRONG></FONT></P>
-<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr><FONT size=3>
-<P><FONT size=3>Microsoft Edge&nbsp;is freeware.</FONT></P></FONT></BLOCKQUOTE>]]></string>
         <key>bes_ssa</key>
         <string>True</string>
         <key>bes_ssaaction</key>
         <string>DefaultAction</string>
         <key>DESCRIPTION</key>
         <string><![CDATA[<DIV class=subsection>
-          <P><FONT size=3><STRONG>About&nbsp;%NAME% </STRONG></FONT></P><FONT size=2>
+          <FONT size=2>
           <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
-            <P>%OfferDescriptionHTML% </P>
-          </BLOCKQUOTE>
+            <P>The browser and search engine for business is here. Empower your people through world class compatibility & performance with Microsoft security.</P>
+            <BR>
+            <UL><LI><FONT size=2><STRONG>Internet Explorer mode</STRONG></FONT></LI></UL>
+            <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+              <P><FONT size=2>No need to open a second browser. Open mission critical legacy sites and modern sites in one window.</FONT></P></BLOCKQUOTE></DIV>
+            </BLOCKQUOTE>
+            <UL><LI><FONT size=2><STRONG>Work across platforms</STRONG></FONT></LI></UL>
+            <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+              <P><FONT size=2>Available on supported versions of Windows, macOS, iOS, and Android with settings that roam.</FONT></P></BLOCKQUOTE></DIV>
+            </BLOCKQUOTE>
+            <UL><LI><FONT size=2><STRONG>Even more extensions</STRONG></FONT></LI></UL>
+            <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+              <P><FONT size=2>Microsoft Edge supports extensions from multiple stores so you can work the way you want.</FONT></P></BLOCKQUOTE></DIV>
+            </BLOCKQUOTE>
+          </BLOCKQUOTE
           <STRONG><P><FONT size=3>About This Task</FONT></P></STRONG>
           <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
             <P>This task will install/upgrade: %NAME%.<BR><BR></P>
             <P>This task is applicable on: Windows</P>
           </BLOCKQUOTE>
+          <BR><BR>
           <P><FONT size=3><STRONG>Action Description</STRONG></FONT></P>
           <UL><LI><FONT size=2><STRONG>Action1: Install/upgrade.</STRONG></FONT></LI></UL><BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
           <P><FONT size=2>This action installs the application  %NAME%.</FONT></P></BLOCKQUOTE></DIV>
           <UL><LI><FONT size=2><STRONG>Action10: Make available in Self Service.</STRONG></FONT></LI></UL><BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
-          <P><FONT size=2>This action performs the same action as Action1 with Self Service deployment options set.</FONT></P></BLOCKQUOTE></DIV>]]></string>
+          <P><FONT size=2>This action performs the same action as Action1 with Self Service deployment options set.</FONT></P></BLOCKQUOTE></DIV>]]>
+          <BR><BR>
+          <P><FONT color=#0080ff size=3><STRONG>Licensing</STRONG></FONT></P>
+          <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr><FONT size=3>
+          <P><FONT size=3>Microsoft Edge&nbsp;is freeware.</FONT></P></FONT></BLOCKQUOTE>]]></string>
         <key>LICENSE</key>
         <string>%NAME% is freeware.</string>
+        <key>OfferDescriptionHTML</key>
+        <string>%DESCRIPTION%</string>
     </dict>
     <key>MinimumVersion</key>
     <string>1.4.0</string>
