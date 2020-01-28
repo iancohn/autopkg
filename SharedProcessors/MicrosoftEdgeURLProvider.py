@@ -118,7 +118,7 @@ class MicrosoftEdgeURLProvider(URLGetter):
         self.env["SizeInBytes"] = latest_release["Artifacts"][0]["SizeInBytes"]
         self.env["installer_type"] = latest_release["Artifacts"][0]["ArtifactName"]
         self.env["PublishedTime"] = latest_release["PublishedTime"]
-        self.env["bes_installer_name"] = ""
+        self.env["bes_installer_name"] = "INSTALLERNAME"
 
 if __name__ == "__main__":
     PROCESSOR = MicrosoftEdgeURLProvider()
