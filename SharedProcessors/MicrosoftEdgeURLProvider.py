@@ -14,8 +14,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from __future__ import absolute_import
 from autopkglib import Processor, ProcessorError, URLGetter
-#import urllib2 as urllib
 import json
 
 MSEDGE_URL_FEED = "https://edgeupdates.microsoft.com/api/products?view=enterprise"
