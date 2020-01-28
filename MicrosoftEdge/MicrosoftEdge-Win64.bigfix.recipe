@@ -27,43 +27,42 @@
         <key>bes_ssaaction</key>
         <string>DefaultAction</string>
         <key>DESCRIPTION</key>
-        <string><![CDATA[<DIV class=subsection>
-          <FONT size=2>
-          <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
-            <P>The browser and search engine for business is here. Empower your people through world class compatibility & performance with Microsoft security.</P>
-            <BR>
-            <UL><LI><FONT size=2><STRONG>Internet Explorer mode</STRONG></FONT></LI></UL>
-            <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
-              <P><FONT size=2>No need to open a second browser. Open mission critical legacy sites and modern sites in one window.</FONT></P></BLOCKQUOTE></DIV>
-            </BLOCKQUOTE>
-            <UL><LI><FONT size=2><STRONG>Work across platforms</STRONG></FONT></LI></UL>
-            <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
-              <P><FONT size=2>Available on supported versions of Windows, macOS, iOS, and Android with settings that roam.</FONT></P></BLOCKQUOTE></DIV>
-            </BLOCKQUOTE>
-            <UL><LI><FONT size=2><STRONG>Even more extensions</STRONG></FONT></LI></UL>
-            <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
-              <P><FONT size=2>Microsoft Edge supports extensions from multiple stores so you can work the way you want.</FONT></P></BLOCKQUOTE></DIV>
-            </BLOCKQUOTE>
-          </BLOCKQUOTE
-          <STRONG><P><FONT size=3>About This Task</FONT></P></STRONG>
-          <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
-            <P>This task will install/upgrade: %NAME%.<BR><BR></P>
-            <P>This task is applicable on: Windows</P>
-          </BLOCKQUOTE>
-          <BR><BR>
-          <P><FONT size=3><STRONG>Action Description</STRONG></FONT></P>
-          <UL><LI><FONT size=2><STRONG>Action1: Install/upgrade.</STRONG></FONT></LI></UL><BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
-          <P><FONT size=2>This action installs the application  %NAME%.</FONT></P></BLOCKQUOTE></DIV>
-          <UL><LI><FONT size=2><STRONG>Action10: Make available in Self Service.</STRONG></FONT></LI></UL><BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
-          <P><FONT size=2>This action performs the same action as Action1 with Self Service deployment options set.</FONT></P></BLOCKQUOTE>
-          <BR><BR>
-          <P><FONT color=#0080ff size=3><STRONG>Licensing</STRONG></FONT></P>
-          <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr><FONT size=3>
-          <P><FONT size=3>Microsoft Edge&nbsp;is freeware.</FONT></P></FONT></BLOCKQUOTE></DIV>]]></string>
+        <string><![CDATA[<P><STRONG><FONT size=3>About %NAME%</FONT></STRONG></P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P><FONT size=2>The browser and search engine for business is here. Empower your people through world class compatibility &amp; performance with Microsoft security. The newly redesigned Microsoft Edge contains features such as:</FONT></P>
+<P><FONT size=2><FONT size=2><STRONG>Internet Explorer mode: </STRONG></FONT></FONT><FONT size=2><FONT size=2>No need to open a second browser. Open mission critical legacy sites and modern sites in one window.</FONT></FONT></P>
+<P><FONT size=2><FONT size=2><STRONG>Work across platforms: </STRONG></FONT></FONT><FONT size=2><FONT size=2>Available on supported versions of Windows, macOS, iOS, and Android with settings that roam.</FONT></FONT></P>
+<P><FONT size=2><STRONG>Even more extensions: </STRONG>Microsoft Edge supports extensions from multiple stores so you can work the way you want.</FONT><FONT size=2></P></BLOCKQUOTE></FONT>
+<P><FONT color=#0080ff size=3><STRONG>Licensing</STRONG></FONT></P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P><FONT size=2>%NAME%&nbsp;is freeware.</FONT></P></BLOCKQUOTE>
+<P><STRONG><FONT size=3>About This Task</FONT></STRONG></P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>This task will install/upgrade: %NAME% %version% (%ARCHITECTURE%)<BR><BR>This task is applicable on: %PLATFORM%</P></BLOCKQUOTE>
+<P><FONT size=3><STRONG>Action Description</STRONG></FONT></P>
+<UL>
+<LI><FONT size=2><STRONG>Action1: Install/upgrade.</STRONG></FONT></LI></UL>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P><FONT size=2>This action installs %NAME%.</FONT></P></BLOCKQUOTE>
+<UL dir=ltr>
+<LI><FONT size=2><STRONG>Action10: Make available in Self Service.</STRONG></FONT></LI></UL>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P dir=ltr><FONT size=2>This action performs the same action as Action1 with Self Service deployment options set.</FONT></P></BLOCKQUOTE>]]></string>
         <key>LICENSE</key>
         <string>%NAME% is freeware.</string>
         <key>OfferDescriptionHTML</key>
-        <string>%DESCRIPTION%</string>
+        <string><![CDATA[<P><STRONG><FONT size=3>About Microsoft Edge</FONT></STRONG></P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P><FONT size=2>The browser and search engine for business is here. Empower your people through world class compatibility &amp; performance with Microsoft security. The newly redesigned Microsoft Edge contains features such as:</FONT></P>
+<P><FONT size=2><FONT size=2><STRONG>Internet Explorer mode: </STRONG></FONT></FONT><FONT size=2><FONT size=2>No need to open a second browser. Open mission critical legacy sites and modern sites in one window.</FONT></FONT></P>
+<P><FONT size=2><FONT size=2><STRONG>Work across platforms: </STRONG></FONT></FONT><FONT size=2><FONT size=2>Available on supported versions of Windows, macOS, iOS, and Android with settings that roam.</FONT></FONT></P>
+<P><FONT size=2><STRONG>Even more extensions: </STRONG>Microsoft Edge supports extensions from multiple stores so you can work the way you want.</FONT><FONT size=2></P></BLOCKQUOTE></FONT>
+<P><FONT color=#0080ff size=3><STRONG>Licensing</STRONG></FONT></P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P><FONT size=2>%NAME%&nbsp;is freeware.</FONT></P></BLOCKQUOTE>
+<P><STRONG><FONT size=3>About This Task</FONT></STRONG></P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>This task will install/upgrade: %NAME% %version%<BR><BR>This task is applicable on: %PLATFORM%</P></BLOCKQUOTE>]]></string>
     </dict>
     <key>MinimumVersion</key>
     <string>1.4.0</string>
