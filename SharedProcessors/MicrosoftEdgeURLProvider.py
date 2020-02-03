@@ -46,7 +46,7 @@ PRODUCT_OPT = [
     ]
 
 class MicrosoftEdgeURLProvider(URLGetter):
-    """Scrap Microsoft's feed for the url path to the latest release of Microsoft Edge (Chromium)."""
+    """Scrape Microsoft's feed for the url path to the latest release of Microsoft Edge (Chromium)."""
     description = "Provides Download URL for Microsoft Edge"
     input_variables = {
         "PLATFORM": {

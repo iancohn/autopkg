@@ -1,0 +1,14 @@
+import json
+
+def get_json_schema(object):
+#    #Process input variable, validate json
+#    if isinstance(object, str):
+#        try:
+#            object = json.loads(object)
+#            print("Valid JSON string submitted. Converting it now to an object..")
+#        except:
+#            print("Invalid JSON submitted.")
+#            raise
+#    elif isinstance(object, list) or isinstance(object, dict):
+#        print("Valid JSON object submitted. Processing now..")
+# Commented out to assume object input for now
