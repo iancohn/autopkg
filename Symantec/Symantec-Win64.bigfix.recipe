@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Uses latest Symantec Endpoint Protection package, creates .bes deployment file and imports it into the console.</string>
+    <key>Identifier</key>
+    <string>edu.psu.bigfix.symantec-win64</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>Symantec Endpoint Protection</string>
+        <key>bes_version</key>
+        <string>14.2.2.5569</string>
+        <key>source_path</key>
+        <string>%RECIPE_CACHE_DIR%/SymantecEXE/Symantec_Endpoint_Protection_14.2.2_Win64-bit_Client_EN.exe</string>
+        <key>bes_icon</key>
+        <string>http://bes.win.psu.edu:52311/ManualUploads/PSU/Icons/Symantec-EndpointProtection.png</string>
+        <key>OfferCategory</key>
+        <string>Utilities</string>
+        <key>OfferDescriptionHTML</key>
+        <string><![CDATA[<STRONG><FONT size=3>About Symantec Endpoint Protection</FONT></STRONG>&nbsp;
+            <BLOCKQUOTE>
+            <P dir=ltr><FONT size=3>Symantec Endpoint Protection is a security software suite, which consists of anti-malware, intrusion prevention and firewall features for server and desktop computers.</FONT></P>
+            </BLOCKQUOTE>
+            <P>&nbsp;<FONT color=#0080ff size=3><STRONG>Licensing</STRONG></FONT></P>
+            <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+            <P dir=ltr><FONT size=3>Symantec Endpoint Protection is free for Penn State systems.</FONT></P></BLOCKQUOTE>]]></string>
+        <key>bes_ssa</key>
+        <string>True</string>
+        <key>bes_ssaaction</key>
+        <string>DefaultAction</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.0</string>
+<!--<key>ParentRecipe</key>
+    <string>Requires using -k pathname=/path/to/.zip</string>-->
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>Copier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>destination_path</key>
+                <string>/Volumes/ManualUploads$/PSU-Windows/Symantec/sep-%version%.exe</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>bes_overrideurl</key>
+                <string>http://bes.win.psu.edu:52311/ManualUploads/PSU-Windows/Symantec/sep-%version%.exe</string>
+                <key>bes_filename</key>
+                <string>SEP64.exe</string>
+                <key>bes_title</key>
+                <string>Install/Upgrade: Symantec Endpoint Protection %bes_version% - (64-bit) - Windows</string>
+                <key>bes_description</key>
+                <string>REPLACEME</string>
+                <key>bes_category</key>
+                <string>Utilities</string>
+                <key>bes_relevance</key>
+                <array>
+                    <string>/*Windows only*/ windows of operating system</string>
+                    <string>/*64-bit only*/ x64 of operating system</string>
+                    <string>not member of group 2083502 /*Windows Server OS Group*/ of site "CustomSite_PSU"</string>
+                    <string>not member of group 47448 /*CLM Division*/ of sites</string>
+                    <string><![CDATA[not exists key whose (value "DisplayName" of it as string contains "Symantec Endpoint Protection" AND (it >= "%bes_version%" as version) of (value "DisplayVersion" of it as string as version)) of key "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall" of x64 registry]]></string>
+                </array>
+                <key>bes_actions</key>
+                <dict>
+                    <key>3</key>
+                    <dict>
+                        <key>Description</key>
+                        <array>
+                          <string>Action 3 - </string>
+                          <string>Install/Upgrade</string>
+                          <string><![CDATA[&nbsp;without Proactive Threat Protection/Network Threat Protection.]]></string>
+                        </array>
+                        <key>ActionName</key>
+                        <string>Action</string>
+                        <key>ActionNumber</key>
+                        <string>Action3</string>
+                        <key>ActionScript</key>
+                        <string><![CDATA[
+// Create temp folder
+folder create "{windows folder}\temp\symantec"
+
+// Extract files to temp folder
+wait "{(pathname of client folder of current site) & "\__Download\SEP64.exe"}" -y -gm2 -nr -InstallPath="{(escape of it) of pathname of folder "temp\symantec" of windows folder}"
+
+// Delete SyLink.xml
+delete "{pathname of file whose (name of it as sting as lowecase is "sylink.xml") of folder "temp\symantec" of windows folder}"
+
+//install SEP
+//to add the Lotus Notes Auto-Protect email feature, add NotesSnapin to ADDLOCAL=, e.g., ADDLOCAL=Core,SAVMain,NotesSnapin
+//similarly, to remove a feature (e.g., the Microsoft Exchange Auto-Protect email feature), remove it from ADDLOCAL, e.g., ADDLOCAL=Core,SAVMain,OutlookSnapin becomes ADDLOCAL=Core,SAVMain
+//note: Pop3Smtp is not supported in 64-bit
+wait "{pathname of system folder & "\msiexec.exe"}" /i "{pathname of file whose (name of it as string as lowercase contains "sep" and name of it ends with ".msi") of folder "temp\symantec" of windows folder}" RUNLIVEUPDATE=1 ENABLEAUTOPROTECT=1 SYMPROTECTDISABLED=0 DISABLEDEFENDER=1 CACHEINSTALL=1 MIGRATESETTINGS=0 ADDLOCAL=Core,SAVMain,Download,OutlookSnapin,Pop3Smtp SYMREBOOT=ReallySuppress /qn REBOOT=ReallySuppress ALLUSERS=2 /L* c:\symantec.log
+
+// Delete temp folder
+folder delete "{windows folder}\temp\symantec"
+
+regset64 "[HKEY_LOCAL_MACHINE\SOFTWARE\PSU\Sysman\Applications]" "{value of header "Subject" of active action}"="Install/upgrade without Proactive Threat Protection/Network Threat Protection - {(month of it as two digits & "/" & day_of_month of it as two digits & "/" & year of it as string) of date (local time zone) of now}"
+
+action requires restart
+]]></string>
+                    </dict>
+                    <key>2</key>
+                    <dict>
+                        <key>Description</key>
+                        <array>
+                            <string>Action2 - </string>
+                            <string>Install/Upgrade</string>
+                            <string> and restart.</string>
+						            </array>
+                        <key>ActionName</key>
+                        <string>DefaultAction</string>
+                        <key>ActionNumber</key>
+                        <string>Action2</string>
+                        <key>ActionScript</key>
+                        <string></string>
+                    </dict>
+                    <key>1</key>
+                    <dict>
+                        <key>Description</key>
+                        <array>
+                            <string>Action1 - </string>
+                            <string>Install/Upgrade</string>
+                            <string>.</string>
+						            </array>
+                        <key>ActionName</key>
+                        <string>Action</string>
+                        <key>ActionNumber</key>
+                        <string>Action1</string>
+                        <key>ActionScript</key>
+                        <string><![CDATA[
+
+// Create temp folder
+folder create "{windows folder}\temp\symantec"
+
+// Extract files to temp folder
+wait "{(pathname of client folder of current site) & "\__Download\SEP64.exe"}" -y -gm2 -nr -InstallPath="{(escape of it) of pathname of folder "temp\symantec" of windows folder}"
+
+// Delete SyLink.xml
+delete "{pathname of file whose (name of it as sting as lowecase is "sylink.xml") of folder "temp\symantec" of windows folder}"
+
+//install SEP
+//to add the Lotus Notes Auto-Protect email feature, add NotesSnapin to ADDLOCAL=, e.g., ADDLOCAL=Core,SAVMain,NotesSnapin
+//similarly, to remove a feature (e.g., the Microsoft Exchange Auto-Protect email feature), remove it from ADDLOCAL, e.g., ADDLOCAL=Core,SAVMain,OutlookSnapin becomes ADDLOCAL=Core,SAVMain
+//note: Pop3Smtp is not supported in 64-bit
+wait "{pathname of system folder & "\msiexec.exe"}" /i "{pathname of file whose (name of it as string as lowercase contains "sep" and name of it ends with ".msi") of folder "temp\symantec" of windows folder}" RUNLIVEUPDATE=1 ENABLEAUTOPROTECT=1 SYMPROTECTDISABLED=0 DISABLEDEFENDER=1 CACHEINSTALL=1 MIGRATESETTINGS=0 ADDLOCAL=Core,SAVMain,Download,OutlookSnapin,Pop3Smtp,PTPMain,TruScan,DCMain,NTPMain,ITPMain,Firewall /qn REBOOT=ReallySuppress ALLUSERS=2
+
+// Delete temp folder
+folder delete "{windows folder}\temp\symantec"
+
+regset64 "[HKEY_LOCAL_MACHINE\SOFTWARE\PSU\Sysman\Applications]" "{value of header "Subject" of active action}"="Install/upgrade - {(month of it as two digits & "/" & day_of_month of it as two digits & "/" & year of it as string) of date (local time zone) of now}"
+
+action requires restart
+]]></string>
+                    </dict>
+                    <key>2</key>
+                    <dict>
+                        <key>Description</key>
+                        <array>
+                            <string>Action2 - </string>
+                            <string>Install/Upgrade</string>
+                            <string><![CDATA[&nbsp;and restart.]]></string>
+                        </array>
+                        <key>ActionName</key>
+                        <string>Action</string>
+                        <key>ActionNumber</key>
+                        <string>Action2</string>
+                        <key>ActionScript</key>
+                        <string><![CDATA[
+
+// Create temp folder
+folder create "{windows folder}\temp\symantec"
+
+// Extract files to temp folder
+wait "{(pathname of client folder of current site) & "\__Download\SEP64.exe"}" -y -gm2 -nr -InstallPath="{(escape of it) of pathname of folder "temp\symantec" of windows folder}"
+
+// Delete SyLink.xml
+delete "{pathname of file whose (name of it as sting as lowecase is "sylink.xml") of folder "temp\symantec" of windows folder}"
+
+//install SEP
+//to add the Lotus Notes Auto-Protect email feature, add NotesSnapin to ADDLOCAL=, e.g., ADDLOCAL=Core,SAVMain,NotesSnapin
+//similarly, to remove a feature (e.g., the Microsoft Exchange Auto-Protect email feature), remove it from ADDLOCAL, e.g., ADDLOCAL=Core,SAVMain,OutlookSnapin becomes ADDLOCAL=Core,SAVMain
+//note: Pop3Smtp is not supported in 64-bit
+wait "{pathname of system folder & "\msiexec.exe"}" /i "{pathname of file whose (name of it as string as lowercase contains "sep" and name of it ends with ".msi") of folder "temp\symantec" of windows folder}" RUNLIVEUPDATE=1 ENABLEAUTOPROTECT=1 SYMPROTECTDISABLED=0 DISABLEDEFENDER=1 CACHEINSTALL=1 MIGRATESETTINGS=0 ADDLOCAL=Core,SAVMain,Download,OutlookSnapin,Pop3Smtp,PTPMain,TruScan,DCMain,NTPMain,ITPMain,Firewall /qn REBOOT=ReallySuppress ALLUSERS=2
+
+// Delete temp folder
+folder delete "{windows folder}\temp\symantec"
+
+regset64 "[HKEY_LOCAL_MACHINE\SOFTWARE\PSU\Sysman\Applications]" "{value of header "Subject" of active action}"="Install/upgrade and restart - {(month of it as two digits & "/" & day_of_month of it as two digits & "/" & year of it as string) of date (local time zone) of now}"
+
+action requires restart
+restart 0]]></string>
+                    </dict>
+                    <key>4</key>
+                    <dict>
+                        <key>Description</key>
+                        <array>
+                            <string>Action4 - </string>
+                            <string>Install/Upgrade</string>
+                            <string><![CDATA[&nbsp;without Proactive Threat Protection/Network Threat Protection and restart.]]></string>
+                        </array>
+                        <key>ActionName</key>
+                        <string>Action</string>
+                        <key>ActionNumber</key>
+                        <string>Action4</string>
+                        <key>ActionScript</key>
+                        <string><![CDATA[
+
+// Create temp folder
+folder create "{windows folder}\temp\symantec"
+
+// Extract files to temp folder
+wait "{(pathname of client folder of current site) & "\__Download\SEP64.exe"}" -y -gm2 -nr -InstallPath="{(escape of it) of pathname of folder "temp\symantec" of windows folder}"
+
+// Delete SyLink.xml
+delete "{pathname of file whose (name of it as sting as lowecase is "sylink.xml") of folder "temp\symantec" of windows folder}"
+
+//install SEP
+//to add the Lotus Notes Auto-Protect email feature, add NotesSnapin to ADDLOCAL=, e.g., ADDLOCAL=Core,SAVMain,NotesSnapin
+//similarly, to remove a feature (e.g., the Microsoft Exchange Auto-Protect email feature), remove it from ADDLOCAL, e.g., ADDLOCAL=Core,SAVMain,OutlookSnapin becomes ADDLOCAL=Core,SAVMain
+//note: Pop3Smtp is not supported in 64-bit
+wait "{pathname of system folder & "\msiexec.exe"}" /i "{pathname of file whose (name of it as string as lowercase contains "sep" and name of it ends with ".msi") of folder "temp\symantec" of windows folder}" RUNLIVEUPDATE=1 ENABLEAUTOPROTECT=1 SYMPROTECTDISABLED=0 DISABLEDEFENDER=1 CACHEINSTALL=1 MIGRATESETTINGS=0 ADDLOCAL=Core,SAVMain,Download,OutlookSnapin,Pop3Smtp /qn REBOOT=ReallySuppress ALLUSERS=2
+
+// Delete temp folder
+folder delete "{windows folder}\temp\symantec"
+
+regset64 "[HKEY_LOCAL_MACHINE\SOFTWARE\PSU\Sysman\Applications]" "{value of header "Subject" of active action}"="Install/upgrade without Proactive Threat Protection/Network Threat Protection and restart - {(month of it as two digits & "/" & day_of_month of it as two digits & "/" & year of it as string) of date (local time zone) of now}"
+
+action requires restart
+restart 0
+]]></string>
+                    </dict>
+                    <key>10</key>
+                    <dict>
+                        <key>Description</key>
+                        <array>
+                            <string>Action10 - </string>
+                            <string>Make Available</string>
+                            <string><![CDATA[&nbsp;in Self Service.]]></string>
+                        </array>
+                        <key>ActionName</key>
+                        <string>Action</string>
+                        <key>ActionNumber</key>
+                        <string>Action10</string>
+                        <key>ActionScript</key>
+                        <string><![CDATA[
+
+// Create temp folder
+folder create "{windows folder}\temp\symantec"
+
+// Extract files to temp folder
+wait "{(pathname of client folder of current site) & "\__Download\SEP64.exe"}" -y -gm2 -nr -InstallPath="{(escape of it) of pathname of folder "temp\symantec" of windows folder}"
+
+// Delete SyLink.xml
+delete "{pathname of file whose (name of it as sting as lowecase is "sylink.xml") of folder "temp\symantec" of windows folder}"
+
+//install SEP
+//to add the Lotus Notes Auto-Protect email feature, add NotesSnapin to ADDLOCAL=, e.g., ADDLOCAL=Core,SAVMain,NotesSnapin
+//similarly, to remove a feature (e.g., the Microsoft Exchange Auto-Protect email feature), remove it from ADDLOCAL, e.g., ADDLOCAL=Core,SAVMain,OutlookSnapin becomes ADDLOCAL=Core,SAVMain
+//note: Pop3Smtp is not supported in 64-bit
+wait "{pathname of system folder & "\msiexec.exe"}" /i "{pathname of file whose (name of it as string as lowercase contains "sep" and name of it ends with ".msi") of folder "temp\symantec" of windows folder}" RUNLIVEUPDATE=1 ENABLEAUTOPROTECT=1 SYMPROTECTDISABLED=0 DISABLEDEFENDER=1 CACHEINSTALL=1 MIGRATESETTINGS=0 ADDLOCAL=Core,SAVMain,Download,OutlookSnapin,Pop3Smtp SYMREBOOT=ReallySuppress /qn REBOOT=ReallySuppress ALLUSERS=2 /L* c:\symantec.log
+
+// Delete temp folder
+folder delete "{windows folder}\temp\symantec"
+
+regset64 "[HKEY_LOCAL_MACHINE\SOFTWARE\PSU\Sysman\Applications]" "{value of header "Subject" of active action}"="Install/upgrade without Proactive Threat Protection/Network Threat Protection - {(month of it as two digits & "/" & day_of_month of it as two digits & "/" & year of it as string) of date (local time zone) of now}"
+
+action requires restart
+]]></string>
+                    </dict>
+
+                </dict>
+            </dict>
+            <key>Processor</key>
+            <string>AutoPkgBESEngine</string>
+        </dict>
+<!--        <dict>
+            <key>Processor</key>
+            <string>BESImporter</string>
+            <key>Arguments</key>
+            <dict>
+                <key>bes_file</key>
+                <string>%bes_file%</string>
+                <key>bes_customsite</key>
+                <string>SysManDev</string>
+            </dict>
+        </dict>-->
+    </array>
+</dict>
+</plist>
