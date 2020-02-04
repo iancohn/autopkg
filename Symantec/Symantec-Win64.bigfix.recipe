@@ -10,6 +10,8 @@
     <dict>
         <key>NAME</key>
         <string>Symantec Endpoint Protection</string>
+        <key>RECIPE_CACHE_DIR</key>
+        <string>~/Library/AutoPkg/Cache</string>
         <key>bes_version</key>
         <string>14.2.2.5569</string>
         <key>source_path</key>
