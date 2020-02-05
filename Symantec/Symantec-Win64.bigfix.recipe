@@ -28,6 +28,8 @@
             <string>Copier</string>
             <key>Arguments</key>
             <dict>
+                <key>source_path</key>
+                <string>%RECIPE_CACHE_DIR%/%EXE_NAME%</string>
                 <key>destination_path</key>
                 <string>/Volumes/ManualUploads$/PSU-Windows/Symantec/sep-%version%.exe</string>
             </dict>
@@ -35,8 +37,6 @@
         <dict>
             <key>Arguments</key>
             <dict>
-                <key>source_path</key>
-                <string>%RECIPE_CACHE_DIR%/%EXE_NAME%</string>
                 <key>bes_overrideurl</key>
                 <string>http://bes.win.psu.edu:52311/ManualUploads/PSU-Windows/Symantec/sep-%version%.exe</string>
                 <key>bes_filename</key>
