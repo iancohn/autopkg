@@ -135,7 +135,12 @@
                 <key>OfferCategory</key>
                 <string>Utilities</string>
                 <key>OfferDescriptionHTML</key>
-                <string>A description</string>
+                <string><![CDATA[<P><STRONG><FONT size=4>About Symantec Endpoint Protection</FONT></STRONG></P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>Symantec Endpoint Protection is an anti-malware and software firewall product for both personal and corporate systems.</P></BLOCKQUOTE>
+<P><STRONG><FONT color=#0080ff size=4>Licensing</FONT></STRONG></P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>Penn State has a site license for Symantec Endpoint Protection (formerly Symantec AntiVirus Corporate Edition), which provides a cost-free virus protection solution with which faculty, staff and students can protect their computers.</P></BLOCKQUOTE>]]></string>
                 <key>bes_ssa</key>
                 <string>True</string>
                 <key>bes_ssaaction</key>
@@ -154,12 +159,12 @@
                     <dict>
                         <key>Description</key>
                         <array>
-                          <string>Action 3 - </string>
+                          <string></string>
                           <string>Install/Upgrade</string>
                           <string><![CDATA[ without Proactive Threat Protection/Network Threat Protection.]]></string>
                         </array>
                         <key>ActionName</key>
-                        <string>Action</string>
+                        <string>DefaultAction</string>
                         <key>ActionNumber</key>
                         <string>Action3</string>
                         <key>ActionScript</key>
@@ -186,28 +191,13 @@ regset64 "[HKEY_LOCAL_MACHINE\SOFTWARE\PSU\Sysman\Applications]" "{value of head
 
 action requires restart</string>
                     </dict>
-                    <key>2</key>
-                    <dict>
-                        <key>Description</key>
-                        <array>
-                            <string>Action2 - </string>
-                            <string>Install/Upgrade</string>
-                            <string> and restart.</string>
-						            </array>
-                        <key>ActionName</key>
-                        <string>DefaultAction</string>
-                        <key>ActionNumber</key>
-                        <string>Action2</string>
-                        <key>ActionScript</key>
-                        <string></string>
-                    </dict>
                     <key>1</key>
                     <dict>
                         <key>Description</key>
                         <array>
-                            <string>Action1 - </string>
+                            <string></string>
                             <string>Install/Upgrade</string>
-                            <string>.</string>
+                            <string></string>
 						            </array>
                         <key>ActionName</key>
                         <string>Action</string>
@@ -280,7 +270,7 @@ restart 0</string>
                     <dict>
                         <key>Description</key>
                         <array>
-                            <string>Action4 - </string>
+                            <string></string>
                             <string>Install/Upgrade</string>
                             <string><![CDATA[ without Proactive Threat Protection/Network Threat Protection and restart.]]></string>
                         </array>
