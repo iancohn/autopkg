@@ -17,8 +17,6 @@
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
-<!--<key>ParentRecipe</key>
-    <string>Requires using -k pathname=/path/to/.zip</string>-->
     <key>Process</key>
     <array>
         <dict>
@@ -129,19 +127,21 @@
 <LI>
 <DIV><STRONG>Managed Clients</STRONG></DIV></LI></UL>
 <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
-<P>This task installs the unmanged version of Symantec Endpoint Protection. For a managed installation, it is recommended to create an installer from your SEP Management server. You may wish to use the Fixlet Maker dashboard to use the SysMan provided template - 'Configuration: Convert to Managed Symantec Endpoint Protection Client - Windows' to create a deployment task for your installation.</P></BLOCKQUOTE>]]>--><string>Alt description</string>
+<P>This task installs the unmanged version of Symantec Endpoint Protection. For a managed installation, it is recommended to create an installer from your SEP Management server. You may wish to use the Fixlet Maker dashboard to use the SysMan provided template - 'Configuration: Convert to Managed Symantec Endpoint Protection Client - Windows' to create a deployment task for your installation.</P></BLOCKQUOTE>]]>
+                --><string>Alt description</string>
                 <key>bes_category</key>
-                <string>Utilities</string>
+                <string>Internet &amp; Web</string>
                 <key>OfferCategory</key>
                 <string>Utilities</string>
-                <key>OfferDescriptionHTML</key>
+                <key>OfferDescriptionHTML</key><!--
                 <string><![CDATA[<STRONG><FONT size=3>About Symantec Endpoint Protection</FONT></STRONG>
                     <BLOCKQUOTE>
                     <P dir=ltr><FONT size=3>Symantec Endpoint Protection is a security software suite, which consists of anti-malware, intrusion prevention and firewall features for server and desktop computers.</FONT></P>
                     </BLOCKQUOTE>
                     <P> <FONT color=#0080ff size=3><STRONG>Licensing</STRONG></FONT></P>
                     <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
-                    <P dir=ltr><FONT size=3>Symantec Endpoint Protection is free for Penn State systems.</FONT></P></BLOCKQUOTE>]]></string>
+                    <P dir=ltr><FONT size=3>Symantec Endpoint Protection is free for Penn State systems.</FONT></P></BLOCKQUOTE>]]>
+                --><string>A description</string>
                 <key>bes_ssa</key>
                 <string>True</string>
                 <key>bes_ssaaction</key>
