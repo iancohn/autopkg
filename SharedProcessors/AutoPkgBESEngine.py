@@ -322,6 +322,7 @@ class AutoPkgBESEngine(Processor):
         fileBaseName = str(os.path.basename(__file__))
         self.output("ln 323")
         user = getpass.getuser()
+        self.output("ln 325")
         # If we don't have a file, don't get a size
         if skipPrefetch == True:
             bes_size = self.env.get("filesize", 0)
