@@ -160,6 +160,9 @@ class AutoPkgBESEngine(Processor):
     def get_size(self, file_path=""):
         if not file_path:
             file_path = self.env.get("bes_softwareinstaller", self.env.get("pathname"))
+            self.output(str(bes_softwareinstaller))
+            self.output(str(pathname))
+            self.output(str(file_path))
 
         return os.path.getsize(file_path)
 
@@ -326,9 +329,9 @@ class AutoPkgBESEngine(Processor):
         self.output("GET name of script for source")
         # Get name of script for Source
         fileBaseName = str(os.path.basename(__file__))
-        self.output("ln 323")
+        self.output("ln 332")
         user = getpass.getuser()
-        self.output("ln 325")
+        self.output("ln 334")
         # If we don't have a file, don't get a size
         if skipPrefetch == True:
             self.output("running skipPrefetch True stuff")
@@ -336,21 +339,21 @@ class AutoPkgBESEngine(Processor):
         else:
             self.output("getting size")
             bes_size = self.get_size()
-        self.output("ln 330")
+        self.output("ln 342")
         gmtime_now = strftime("%a, %d %b %Y %X +0000", gmtime())
 
         bes_displayname = self.env.get("NAME")
-        self.output("ln 334")
+        self.output("ln 346")
         bes_version = self.env.get("bes_version")
-        self.output("ln336")
+        self.output("ln348")
         bes_title = self.env.get("bes_title",
                                  "Deploy %s %s" %
                                  (bes_displayname, bes_version))
-        self.output("ln 340")
+        self.output("ln 352")
         bes_category = self.env.get("bes_category", 'Software Deployment')
-        self.output("ln342")
+        self.output("ln354")
         bes_relevance = self.env.get("bes_relevance")
-        self.output("ln 344")
+        self.output("ln 356")
         if skipPrefetch != True:
             bes_filename = self.env.get("bes_filename", url.split('/')[-1])
             bes_filename = bes_filename.strip().replace(' ', '_')
