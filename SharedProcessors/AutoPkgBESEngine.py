@@ -160,8 +160,8 @@ class AutoPkgBESEngine(Processor):
     def get_size(self, file_path=""):
         if not file_path:
             file_path = self.env.get("bes_softwareinstaller", self.env.get("pathname"))
-            self.output(str(bes_softwareinstaller))
-            self.output(str(pathname))
+            self.output(str(self.env.get("bes_softwareinstaller")))
+            self.output(str(self.env.get("pathname")))
             self.output(str(file_path))
 
         return os.path.getsize(file_path)
