@@ -10,8 +10,6 @@
     <dict>
         <key>NAME</key>
         <string>Symantec Endpoint Protection</string>
-        <key>RECIPE_CACHE_DIR</key>
-        <string/>
         <key>EXE_NAME</key>
         <string/>
         <key>bes_version</key>
