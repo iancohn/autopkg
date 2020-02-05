@@ -320,7 +320,8 @@ class AutoPkgBESEngine(Processor):
                              self.env.get("url")))
             self.output(url)
             self.output("^This is the 'url' var")
-            
+            self.output("Skip prefetch is " + skipPrefetch)
+
         self.output("GET name of script for source")
         # Get name of script for Source
         fileBaseName = str(os.path.basename(__file__))
@@ -329,8 +330,10 @@ class AutoPkgBESEngine(Processor):
         self.output("ln 325")
         # If we don't have a file, don't get a size
         if skipPrefetch == True:
+            self.output("running skipPrefetch True stuff")
             bes_size = self.env.get("filesize", 0)
         else:
+            self.output("getting size")
             bes_size = self.get_size()
         self.output("ln 330")
         gmtime_now = strftime("%a, %d %b %Y %X +0000", gmtime())
