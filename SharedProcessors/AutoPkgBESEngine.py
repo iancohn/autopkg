@@ -306,8 +306,8 @@ class AutoPkgBESEngine(Processor):
         """
         Create a BES software distribution task.
         """
-        self.output("bes_softwareinstaller is " + self.env.get("bes_softwareinstaller"))
-        self.output("pathname is " + self.env.get("pathname"))
+        self.output("bes_softwareinstaller is " + str(self.env.get("bes_softwareinstaller")))
+        self.output("pathname is " + str(self.env.get("pathname")))
         skipPrefetch = False
 
         # Check for URL, set to skip
