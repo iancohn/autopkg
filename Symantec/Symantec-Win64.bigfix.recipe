@@ -232,7 +232,7 @@ action requires restart</string>
                     <dict>
                         <key>Description</key>
                         <array>
-                            <string>Action2 - </string>
+                            <string></string>
                             <string>Install/Upgrade</string>
                             <string><![CDATA[ and restart.]]></string>
                         </array>
@@ -304,44 +304,6 @@ regset64 "[HKEY_LOCAL_MACHINE\SOFTWARE\PSU\Sysman\Applications]" "{value of head
 action requires restart
 restart 0</string>
                     </dict>
-                    <key>10</key>
-                    <dict>
-                        <key>Description</key>
-                        <array>
-                            <string>Action10 - </string>
-                            <string>Make Available</string>
-                            <string> in Self Service.</string>
-                        </array>
-                        <key>ActionName</key>
-                        <string>Action</string>
-                        <key>ActionNumber</key>
-                        <string>Action10</string>
-                        <key>ActionScript</key>
-                        <string>
-
-// Create temp folder
-folder create "{windows folder}\temp\symantec"
-
-// Extract files to temp folder
-wait "{(pathname of client folder of current site) &amp; "\__Download\SEP64.exe"}" -y -gm2 -nr -InstallPath="{(escape of it) of pathname of folder "temp\symantec" of windows folder}"
-
-// Delete SyLink.xml
-delete "{pathname of file whose (name of it as sting as lowecase is "sylink.xml") of folder "temp\symantec" of windows folder}"
-
-//install SEP
-//to add the Lotus Notes Auto-Protect email feature, add NotesSnapin to ADDLOCAL=, e.g., ADDLOCAL=Core,SAVMain,NotesSnapin
-//similarly, to remove a feature (e.g., the Microsoft Exchange Auto-Protect email feature), remove it from ADDLOCAL, e.g., ADDLOCAL=Core,SAVMain,OutlookSnapin becomes ADDLOCAL=Core,SAVMain
-//note: Pop3Smtp is not supported in 64-bit
-wait "{pathname of system folder &amp; "\msiexec.exe"}" /i "{pathname of file whose (name of it as string as lowercase contains "sep" and name of it ends with ".msi") of folder "temp\symantec" of windows folder}" RUNLIVEUPDATE=1 ENABLEAUTOPROTECT=1 SYMPROTECTDISABLED=0 DISABLEDEFENDER=1 CACHEINSTALL=1 MIGRATESETTINGS=0 ADDLOCAL=Core,SAVMain,Download,OutlookSnapin,Pop3Smtp SYMREBOOT=ReallySuppress /qn REBOOT=ReallySuppress ALLUSERS=2 /L* c:\symantec.log
-
-// Delete temp folder
-folder delete "{windows folder}\temp\symantec"
-
-regset64 "[HKEY_LOCAL_MACHINE\SOFTWARE\PSU\Sysman\Applications]" "{value of header "Subject" of active action}"="Install/upgrade without Proactive Threat Protection/Network Threat Protection - {(month of it as two digits &amp; "/" &amp; day_of_month of it as two digits &amp; "/" &amp; year of it as string) of date (local time zone) of now}"
-
-action requires restart</string>
-</dict>
-
                 </dict>
             </dict>
             <key>Processor</key>
