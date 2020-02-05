@@ -369,7 +369,7 @@ class AutoPkgBESEngine(Processor):
         bes_icon = self.env.get("bes_icon", False)
 
         bes_additionalmimefields = self.env.get("bes_additionalmimefields", False)
-        self.output(ln 372)
+        self.output("ln 372")
         # Prepend prefetch line to action script for all actions
         # Prepend and append pre and post actionscript additions
         self.output("finished var sets")
