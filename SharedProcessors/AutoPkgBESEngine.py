@@ -112,11 +112,11 @@ class AutoPkgBESEngine(Processor):
         },
     }
     __doc__ = description
-    self.output("starting def __init__")
+    print "starting def __init__"
     def __init__(self, env):
         self.env = env
         self.doc = etree.ElementTree()
-    self.output("starting def get_direct_url")
+    print "starting def get_direct_url"
     def get_direct_url(self, url):
         """
         Return a direct url for a download link and spoof the User-Agent.
@@ -300,7 +300,7 @@ class AutoPkgBESEngine(Processor):
         except Exception, error:
             self.output("Relevance Error: (%s) -- %s" % (QNA, error))
             return True
-    self.output("starting def main")
+    print "starting def main"
     def main(self):
         """
         Create a BES software distribution task.
