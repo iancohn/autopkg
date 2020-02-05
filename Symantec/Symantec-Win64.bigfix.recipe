@@ -43,7 +43,7 @@
                 <string>Install/Upgrade: Symantec Endpoint Protection %bes_version% - (64-bit) - Windows</string>
                 <key>bes_icon</key>
                 <string>http://bes.win.psu.edu:52311/ManualUploads/PSU/Icons/Symantec-EndpointProtection.png</string>
-                <key>bes_description</key>
+                <key>bes_description</key><!--
                 <string><![CDATA[<P><STRONG><FONT size=3>About Symantec Endpoint Protection</FONT></STRONG></P>
 <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
 <P>Symantec Endpoint Protection is an anti-malware and software firewall product for both personal and corporate systems.</P>
@@ -129,7 +129,7 @@
 <LI>
 <DIV><STRONG>Managed Clients</STRONG></DIV></LI></UL>
 <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
-<P>This task installs the unmanged version of Symantec Endpoint Protection. For a managed installation, it is recommended to create an installer from your SEP Management server. You may wish to use the Fixlet Maker dashboard to use the SysMan provided template - 'Configuration: Convert to Managed Symantec Endpoint Protection Client - Windows' to create a deployment task for your installation.</P></BLOCKQUOTE>]]></string>
+<P>This task installs the unmanged version of Symantec Endpoint Protection. For a managed installation, it is recommended to create an installer from your SEP Management server. You may wish to use the Fixlet Maker dashboard to use the SysMan provided template - 'Configuration: Convert to Managed Symantec Endpoint Protection Client - Windows' to create a deployment task for your installation.</P></BLOCKQUOTE>]]>--><string>Alt description</string>
                 <key>bes_category</key>
                 <string>Utilities</string>
                 <key>OfferCategory</key>
