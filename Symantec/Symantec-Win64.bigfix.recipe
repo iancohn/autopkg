@@ -309,7 +309,7 @@ restart 0</string>
             <key>Processor</key>
             <string>AutoPkgBESEngine</string>
         </dict>
-<!--        <dict>
+       <dict>
             <key>Processor</key>
             <string>BESImporter</string>
             <key>Arguments</key>
@@ -319,7 +319,7 @@ restart 0</string>
                 <key>bes_customsite</key>
                 <string>SysManDev</string>
             </dict>
-        </dict>-->
+        </dict>
     </array>
 </dict>
 </plist>
