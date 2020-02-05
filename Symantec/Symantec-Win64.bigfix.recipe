@@ -363,7 +363,7 @@ change this string tag-->
                 </dict>
             </dict>
             <key>Processor</key>
-            <string>AutoPkgBESEngine</string>
+            <string>com.github.iancohn.SharedProcessors/AutoPkgBESEngine</string>
         </dict>
 <!--        <dict>
             <key>Processor</key>
