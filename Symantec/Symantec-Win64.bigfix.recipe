@@ -11,27 +11,13 @@
         <key>NAME</key>
         <string>Symantec Endpoint Protection</string>
         <key>RECIPE_CACHE_DIR</key>
-        <string>~/Library/AutoPkg/Cache</string>
-        <key>bes_version</key>
-        <string>14.2.2.5569</string>
-        <key>source_path</key>
-        <string>%RECIPE_CACHE_DIR%/SymantecEXE/Symantec_Endpoint_Protection_14.2.2_Win64-bit_Client_EN.exe</string>
+        <string>~/Library/AutoPkg/Cache/SymantecEXE</string>
+        <key>EXE_NAME</key>
+        <string>Symantec_Endpoint_Protection_14.2.2_Win64-bit_Client_EN.exe</string>
+<!--        <key>bes_version</key>
+        <string>14.2.2.5569</string>-->
         <key>bes_icon</key>
         <string>http://bes.win.psu.edu:52311/ManualUploads/PSU/Icons/Symantec-EndpointProtection.png</string>
-        <key>OfferCategory</key>
-        <string>Utilities</string>
-        <key>OfferDescriptionHTML</key>
-        <string><![CDATA[<STRONG><FONT size=3>About Symantec Endpoint Protection</FONT></STRONG>&nbsp;
-            <BLOCKQUOTE>
-            <P dir=ltr><FONT size=3>Symantec Endpoint Protection is a security software suite, which consists of anti-malware, intrusion prevention and firewall features for server and desktop computers.</FONT></P>
-            </BLOCKQUOTE>
-            <P>&nbsp;<FONT color=#0080ff size=3><STRONG>Licensing</STRONG></FONT></P>
-            <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
-            <P dir=ltr><FONT size=3>Symantec Endpoint Protection is free for Penn State systems.</FONT></P></BLOCKQUOTE>]]></string>
-        <key>bes_ssa</key>
-        <string>True</string>
-        <key>bes_ssaaction</key>
-        <string>DefaultAction</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
@@ -51,6 +37,8 @@
         <dict>
             <key>Arguments</key>
             <dict>
+                <key>source_path</key>
+                <string>%RECIPE_CACHE_DIR%/%EXE_NAME%</string>
                 <key>bes_overrideurl</key>
                 <string>http://bes.win.psu.edu:52311/ManualUploads/PSU-Windows/Symantec/sep-%version%.exe</string>
                 <key>bes_filename</key>
@@ -61,6 +49,20 @@
                 <string>REPLACEME</string>
                 <key>bes_category</key>
                 <string>Utilities</string>
+                <key>OfferCategory</key>
+                <string>Utilities</string>
+                <key>OfferDescriptionHTML</key>
+                <string><![CDATA[<STRONG><FONT size=3>About Symantec Endpoint Protection</FONT></STRONG>&nbsp;
+                    <BLOCKQUOTE>
+                    <P dir=ltr><FONT size=3>Symantec Endpoint Protection is a security software suite, which consists of anti-malware, intrusion prevention and firewall features for server and desktop computers.</FONT></P>
+                    </BLOCKQUOTE>
+                    <P>&nbsp;<FONT color=#0080ff size=3><STRONG>Licensing</STRONG></FONT></P>
+                    <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+                    <P dir=ltr><FONT size=3>Symantec Endpoint Protection is free for Penn State systems.</FONT></P></BLOCKQUOTE>]]></string>
+                <key>bes_ssa</key>
+                <string>True</string>
+                <key>bes_ssaaction</key>
+                <string>DefaultAction</string>
                 <key>bes_relevance</key>
                 <array>
                     <string>/*Windows only*/ windows of operating system</string>
