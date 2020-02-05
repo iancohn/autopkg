@@ -316,7 +316,7 @@ class AutoPkgBESEngine(Processor):
             url = self.get_direct_url(
                 self.env.get("bes_overrideurl",
                              self.env.get("url")))
-
+        print "line 319"
         self.output("GET name of script for source")
         # Get name of script for Source
         fileBaseName = str(os.path.basename(__file__))
