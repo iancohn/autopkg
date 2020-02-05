@@ -312,11 +312,15 @@ class AutoPkgBESEngine(Processor):
         # Check for URL, set to skip
         if (self.env.get("bes_overrideurl") == None) and (self.env.get("url") == None):
             skipPrefetch = True
+            self.output("Skip Prefetch - TRUE")
         else:
             # Assign Application Variables
             url = self.get_direct_url(
                 self.env.get("bes_overrideurl",
                              self.env.get("url")))
+            self.output(url)
+            self.output("^This is the 'url' var")
+            
         self.output("GET name of script for source")
         # Get name of script for Source
         fileBaseName = str(os.path.basename(__file__))
