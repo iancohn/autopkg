@@ -33,6 +33,8 @@
         <dict>
             <key>Arguments</key>
             <dict>
+                <key>pathname</key>
+                <string>%destination_path%</string>
                 <key>bes_overrideurl</key>
                 <string>http://bes.win.psu.edu:52311/ManualUploads/PSU-Windows/Symantec/sep-%bes_version%.exe</string>
                 <key>bes_filename</key>
