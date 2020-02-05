@@ -317,7 +317,6 @@ class AutoPkgBESEngine(Processor):
             url = self.get_direct_url(
                 self.env.get("bes_overrideurl",
                              self.env.get("url")))
-        print "line 319"
         self.output("GET name of script for source")
         # Get name of script for Source
         fileBaseName = str(os.path.basename(__file__))
@@ -342,7 +341,7 @@ class AutoPkgBESEngine(Processor):
         bes_category = self.env.get("bes_category", 'Software Deployment')
 
         bes_relevance = self.env.get("bes_relevance")
-
+        self.output("ln 344")
         if skipPrefetch != True:
             bes_filename = self.env.get("bes_filename", url.split('/')[-1])
             bes_filename = bes_filename.strip().replace(' ', '_')
@@ -370,7 +369,7 @@ class AutoPkgBESEngine(Processor):
         bes_icon = self.env.get("bes_icon", False)
 
         bes_additionalmimefields = self.env.get("bes_additionalmimefields", False)
-
+        self.output(ln 372)
         # Prepend prefetch line to action script for all actions
         # Prepend and append pre and post actionscript additions
         self.output("finished var sets")
@@ -402,7 +401,7 @@ class AutoPkgBESEngine(Processor):
             ('CVENames', ""),
             ('SANSID', ""),
         ))
-
+        self.output("ln 404")
         # Start Building BES XML
         self.output("Building 'Deploy %s %s.bes'" %
                     (bes_displayname, bes_version))
@@ -433,7 +432,7 @@ class AutoPkgBESEngine(Processor):
         # Append Details Dictionary
         for key, value in details.items():
             node.append(self.new_node(key, value))
-
+        self.output("ln 435")
         # Add Self-Service UI Data, If Specified
         if bes_ssa in ['True', 'true']:
             if bes_icon:
@@ -448,7 +447,7 @@ class AutoPkgBESEngine(Processor):
                 node.append(self.new_mime('action-ui-metadata',
                                           '{"version": "%s", "size": "%s"}' % (bes_version,
                                                                                bes_size)))
-
+        self.output("ln450")
         # Append MIME Source Data
         node.append(self.new_mime('x-fixlet-source',
                                   fileBaseName))
@@ -478,7 +477,7 @@ class AutoPkgBESEngine(Processor):
         # Append Actions
         for action in sorted(bes_actions.iterkeys()):
             node.append(self.new_action(bes_actions[action]))
-
+        self.output("ln 480")
         # Append SSA Action
         if bes_ssaaction and bes_ssaaction_copy:
                 bes_ssaaction_copy['Description'] = ['',
