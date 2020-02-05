@@ -320,7 +320,7 @@ class AutoPkgBESEngine(Processor):
                              self.env.get("url")))
             self.output(url)
             self.output("^This is the 'url' var")
-            self.output("Skip prefetch is " + skipPrefetch)
+            self.output("Skip prefetch is " + str(skipPrefetch))
 
         self.output("GET name of script for source")
         # Get name of script for Source
