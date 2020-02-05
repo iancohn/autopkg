@@ -320,14 +320,14 @@ class AutoPkgBESEngine(Processor):
         self.output("GET name of script for source")
         # Get name of script for Source
         fileBaseName = str(os.path.basename(__file__))
-
+        self.output("ln 323")
         user = getpass.getuser()
         # If we don't have a file, don't get a size
         if skipPrefetch == True:
             bes_size = self.env.get("filesize", 0)
         else:
             bes_size = self.get_size()
-
+        self.output("ln 330")
         gmtime_now = strftime("%a, %d %b %Y %X +0000", gmtime())
 
         bes_displayname = self.env.get("NAME")
