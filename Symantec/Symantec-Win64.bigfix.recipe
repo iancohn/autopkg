@@ -326,7 +326,7 @@ restart 0</string>
                         <array>
                             <string>Action10 - </string>
                             <string>Make Available</string>
-                            <string><![CDATA[ in Self Service.]]></string>
+                            <string> in Self Service.</string>
                         </array>
                         <key>ActionName</key>
                         <string>Action</string>
