@@ -11,13 +11,11 @@
         <key>NAME</key>
         <string>Symantec Endpoint Protection</string>
         <key>RECIPE_CACHE_DIR</key>
-        <string>~/Library/AutoPkg/Cache/SymantecEXE</string>
+        <string/>
         <key>EXE_NAME</key>
-        <string>Symantec_Endpoint_Protection_14.2.2_Win64-bit_Client_EN.exe</string>
-<!--        <key>bes_version</key>
-        <string>14.2.2.5569</string>-->
-        <key>bes_icon</key>
-        <string>http://bes.win.psu.edu:52311/ManualUploads/PSU/Icons/Symantec-EndpointProtection.png</string>
+        <string/>
+        <key>bes_version</key>
+        <string/>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
@@ -45,8 +43,95 @@
                 <string>SEP64.exe</string>
                 <key>bes_title</key>
                 <string>Install/Upgrade: Symantec Endpoint Protection %bes_version% - (64-bit) - Windows</string>
+                <key>bes_icon</key>
+                <string>http://bes.win.psu.edu:52311/ManualUploads/PSU/Icons/Symantec-EndpointProtection.png</string>
                 <key>bes_description</key>
-                <string>REPLACEME</string>
+                <string><![CDATA[<P><STRONG><FONT size=3>About Symantec Endpoint Protection</FONT></STRONG></P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>Symantec Endpoint Protection is an anti-malware and software firewall product for both personal and corporate systems.</P>
+<P>Please also note that after the installation of this program and periodically (daily or weekly) thereafter, users must run the software's "LiveUpdate" in order to obtain the latest and most current virus definition files. Failure to update virus definition files will leave a computer vulnerable to new viruses.</P>
+<P>This task installs the <STRONG>unmanaged</STRONG> version of Symantec Endpoint Protection</P></BLOCKQUOTE>
+<P><STRONG><FONT color=#0080ff size=3>Licensing</FONT></STRONG></P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>Penn State has a site license for Symantec Endpoint Protection (formerly Symantec AntiVirus Corporate Edition), which provides a cost-free virus protection solution with which faculty, staff and students can protect their computers.</P></BLOCKQUOTE>
+<P><STRONG><FONT size=3>About This Task</FONT></STRONG></P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>This task will install/upgrade: Symantec Endpoint Protection %bes_version% (64-bit).<BR><BR>This task is applicable on: Windows XP and higher (64-bit).&nbsp;</P></BLOCKQUOTE>
+<P dir=ltr><STRONG><FONT size=3>Action Description</FONT></STRONG></P>
+<UL dir=ltr>
+<LI>
+<DIV><STRONG>Action1: Install/upgrade.</STRONG></DIV></LI></UL>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>This action&nbsp;installs Symantec Endpoint Protection with the default settings and components, i.e.:</P>
+<UL>
+<LI>Virus, Spyware, and Basic Download Protection
+<UL>
+<LI>Advanced Download Protection
+<LI>Outlook Scanner (see the Action source for instructions to remove this or add the Lotus Notes scanner)
+<LI>POP3/SMTP Scanner</LI></UL>
+<LI>Proactive Threat Protection
+<UL>
+<LI>SONAR
+<LI>Application and Device Control</LI></UL>
+<LI>Network Threat Protection
+<UL>
+<LI>Intrusion Prevention
+<LI>Firewall</LI></UL></LI></UL>
+<P>Use this action for maximum protection from security threats.</P>
+<P><STRONG><FONT color=#ff0000>Important note:</FONT></STRONG> A restart is required but not enforced. To ensure that the action successfully completes, you may want to include a message to inform users when to reboot or deploy a restart action using the <EM>Restart Computer with "Pending Restart" Status</EM> task in the PSU site.</P></BLOCKQUOTE>
+<UL dir=ltr>
+<LI>
+<DIV><STRONG>Action2: Install/upgrade and restart.</STRONG></DIV></LI></UL>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P dir=ltr>This action performs the same action as Action1; however, it also restarts the client computer when the installation is finished.</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG><FONT color=#ff0000>Important note:</FONT></STRONG> This action forces an immediate restart; if a user is logged on,&nbsp;he or she&nbsp;will receive a warning message with a 60-second countdown. Please schedule the action to occur when such a service interruption is acceptable</P></BLOCKQUOTE>
+<UL dir=ltr>
+<LI>
+<DIV><STRONG>Action3: Install/upgrade without Proactive Threat Protection/Network Threat Protection.</STRONG></DIV></LI></UL>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>This action installs only the <EM>Virus, Spyware, and Basic Download Protection</EM> components and does not install <EM>Proactive Threate Protection</EM> or <EM>Network Threat Protection</EM>, i.e.:.</P>
+<UL dir=ltr>
+<LI>
+<DIV>Virus, Spyware, and Basic Download Protection</DIV>
+<UL>
+<LI>Advanced Download Protection
+<LI>Outlook Scanner (see the Action source for instructions to remove this or add the Lotus Notes scanner)
+<LI>POP3/SMTP Scanner</LI></UL></LI></UL>
+<P dir=ltr>Although not recommended, use this action if your environment has applications that conflict with these advanced features of SEP.</P>
+<P dir=ltr><STRONG><FONT color=#ff0000>Important note:</FONT></STRONG> A restart is required but not enforced. To ensure that the action successfully completes, you may want to include a message to inform users when to reboot or deploy a restart action using the <EM>Restart Computer with "Pending Restart" Status</EM> task in the PSU site.</P></BLOCKQUOTE>
+<UL dir=ltr>
+<LI>
+<DIV><STRONG>Action4: Install/upgrade without Proactive Threat Protection/Network Threat Protection and restart.</STRONG></DIV></LI></UL>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>This action performs the same action as Action3; however, it also restarts the client computer when the installation is finished.</P>
+<P><STRONG><FONT color=#ff0000>Important note:</FONT></STRONG> This action forces an immediate restart; if a user is logged on,&nbsp;he or she&nbsp;will receive a warning message with a 60-second countdown. Please schedule the action to occur when such a service interruption is acceptable.</P></BLOCKQUOTE>
+<UL dir=ltr>
+<LI><STRONG>Action10: Make available in Self Service.</STRONG></LI></UL>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>This action performs the same action as Action3 with Self Service deployment options set.</P></BLOCKQUOTE>
+<P dir=ltr><STRONG><FONT size=3>Additional Notes</FONT></STRONG></P>
+<UL dir=ltr>
+<LI>
+<DIV><STRONG>Network Threat Protection</STRONG></DIV></LI></UL>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>Network Threat Protection provides a firewall and intrusion prevention protection to prevent intrusion attacks and malicious content from reaching the computer that runs the Symantec Endpoint Protection client. The firewall allows or blocks network traffic based on various criteria that the administrator or end user sets.</P>
+<P>The client also analyzes all the incoming and the outgoing information for the data patterns that are typical of an attack. It detects and blocks malicious traffic and attempts by outside users to attack the client computer. Intrusion prevention also monitors outbound traffic and prevents the spread of worms.</P></BLOCKQUOTE>
+<UL dir=ltr>
+<LI>
+<DIV><STRONG>Proactive Threat Protection</STRONG></DIV></LI></UL>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>Proactive Threat Protection provides protection against zero-day attack vulnerabilities in your network. Zero-day attack vulnerabilities are new vulnerabilities that are not yet publicly known. Threats that exploit these vulnerabilities can evade signature-based detection (such as antispyware and antispyware definitions). Zero-day attacks may be used in targeted attacks and in the propagation of malicious code.</P>
+<P>Proactive Threat Protection includes the following:</P>
+<UL type=disc>
+<LI>
+<P>TruScan proactive threat scans</P>
+<LI>
+<P>Application and Device Control Policies</P></LI></UL></BLOCKQUOTE>
+<UL dir=ltr>
+<LI>
+<DIV><STRONG>Managed Clients</STRONG></DIV></LI></UL>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>This task installs the unmanged version of Symantec Endpoint Protection. For a managed installation, it is recommended to create an installer from your SEP Management server. You may wish to use the Fixlet Maker dashboard to use the SysMan provided template - 'Configuration: Convert to Managed Symantec Endpoint Protection Client - Windows' to create a deployment task for your installation.</P></BLOCKQUOTE>]]></string>
                 <key>bes_category</key>
                 <string>Utilities</string>
                 <key>OfferCategory</key>
@@ -86,12 +171,12 @@
                         <key>ActionNumber</key>
                         <string>Action3</string>
                         <key>ActionScript</key>
-                        <string><![CDATA[
+                        <string>
 // Create temp folder
 folder create "{windows folder}\temp\symantec"
 
 // Extract files to temp folder
-wait "{(pathname of client folder of current site) & "\__Download\SEP64.exe"}" -y -gm2 -nr -InstallPath="{(escape of it) of pathname of folder "temp\symantec" of windows folder}"
+wait "{(pathname of client folder of current site) &amp; "\__Download\SEP64.exe"}" -y -gm2 -nr -InstallPath="{(escape of it) of pathname of folder "temp\symantec" of windows folder}"
 
 // Delete SyLink.xml
 delete "{pathname of file whose (name of it as sting as lowecase is "sylink.xml") of folder "temp\symantec" of windows folder}"
@@ -100,15 +185,14 @@ delete "{pathname of file whose (name of it as sting as lowecase is "sylink.xml"
 //to add the Lotus Notes Auto-Protect email feature, add NotesSnapin to ADDLOCAL=, e.g., ADDLOCAL=Core,SAVMain,NotesSnapin
 //similarly, to remove a feature (e.g., the Microsoft Exchange Auto-Protect email feature), remove it from ADDLOCAL, e.g., ADDLOCAL=Core,SAVMain,OutlookSnapin becomes ADDLOCAL=Core,SAVMain
 //note: Pop3Smtp is not supported in 64-bit
-wait "{pathname of system folder & "\msiexec.exe"}" /i "{pathname of file whose (name of it as string as lowercase contains "sep" and name of it ends with ".msi") of folder "temp\symantec" of windows folder}" RUNLIVEUPDATE=1 ENABLEAUTOPROTECT=1 SYMPROTECTDISABLED=0 DISABLEDEFENDER=1 CACHEINSTALL=1 MIGRATESETTINGS=0 ADDLOCAL=Core,SAVMain,Download,OutlookSnapin,Pop3Smtp SYMREBOOT=ReallySuppress /qn REBOOT=ReallySuppress ALLUSERS=2 /L* c:\symantec.log
+wait "{pathname of system folder &amp; "\msiexec.exe"}" /i "{pathname of file whose (name of it as string as lowercase contains "sep" and name of it ends with ".msi") of folder "temp\symantec" of windows folder}" RUNLIVEUPDATE=1 ENABLEAUTOPROTECT=1 SYMPROTECTDISABLED=0 DISABLEDEFENDER=1 CACHEINSTALL=1 MIGRATESETTINGS=0 ADDLOCAL=Core,SAVMain,Download,OutlookSnapin,Pop3Smtp SYMREBOOT=ReallySuppress /qn REBOOT=ReallySuppress ALLUSERS=2 /L* c:\symantec.log
 
 // Delete temp folder
 folder delete "{windows folder}\temp\symantec"
 
-regset64 "[HKEY_LOCAL_MACHINE\SOFTWARE\PSU\Sysman\Applications]" "{value of header "Subject" of active action}"="Install/upgrade without Proactive Threat Protection/Network Threat Protection - {(month of it as two digits & "/" & day_of_month of it as two digits & "/" & year of it as string) of date (local time zone) of now}"
+regset64 "[HKEY_LOCAL_MACHINE\SOFTWARE\PSU\Sysman\Applications]" "{value of header "Subject" of active action}"="Install/upgrade without Proactive Threat Protection/Network Threat Protection - {(month of it as two digits &amp; "/" &amp; day_of_month of it as two digits &amp; "/" &amp; year of it as string) of date (local time zone) of now}"
 
-action requires restart
-]]></string>
+action requires restart</string>
                     </dict>
                     <key>2</key>
                     <dict>
@@ -138,13 +222,13 @@ action requires restart
                         <key>ActionNumber</key>
                         <string>Action1</string>
                         <key>ActionScript</key>
-                        <string><![CDATA[
+                        <string>
 
 // Create temp folder
 folder create "{windows folder}\temp\symantec"
 
 // Extract files to temp folder
-wait "{(pathname of client folder of current site) & "\__Download\SEP64.exe"}" -y -gm2 -nr -InstallPath="{(escape of it) of pathname of folder "temp\symantec" of windows folder}"
+wait "{(pathname of client folder of current site) &amp; "\__Download\SEP64.exe"}" -y -gm2 -nr -InstallPath="{(escape of it) of pathname of folder "temp\symantec" of windows folder}"
 
 // Delete SyLink.xml
 delete "{pathname of file whose (name of it as sting as lowecase is "sylink.xml") of folder "temp\symantec" of windows folder}"
@@ -153,15 +237,14 @@ delete "{pathname of file whose (name of it as sting as lowecase is "sylink.xml"
 //to add the Lotus Notes Auto-Protect email feature, add NotesSnapin to ADDLOCAL=, e.g., ADDLOCAL=Core,SAVMain,NotesSnapin
 //similarly, to remove a feature (e.g., the Microsoft Exchange Auto-Protect email feature), remove it from ADDLOCAL, e.g., ADDLOCAL=Core,SAVMain,OutlookSnapin becomes ADDLOCAL=Core,SAVMain
 //note: Pop3Smtp is not supported in 64-bit
-wait "{pathname of system folder & "\msiexec.exe"}" /i "{pathname of file whose (name of it as string as lowercase contains "sep" and name of it ends with ".msi") of folder "temp\symantec" of windows folder}" RUNLIVEUPDATE=1 ENABLEAUTOPROTECT=1 SYMPROTECTDISABLED=0 DISABLEDEFENDER=1 CACHEINSTALL=1 MIGRATESETTINGS=0 ADDLOCAL=Core,SAVMain,Download,OutlookSnapin,Pop3Smtp,PTPMain,TruScan,DCMain,NTPMain,ITPMain,Firewall /qn REBOOT=ReallySuppress ALLUSERS=2
+wait "{pathname of system folder &amp; "\msiexec.exe"}" /i "{pathname of file whose (name of it as string as lowercase contains "sep" and name of it ends with ".msi") of folder "temp\symantec" of windows folder}" RUNLIVEUPDATE=1 ENABLEAUTOPROTECT=1 SYMPROTECTDISABLED=0 DISABLEDEFENDER=1 CACHEINSTALL=1 MIGRATESETTINGS=0 ADDLOCAL=Core,SAVMain,Download,OutlookSnapin,Pop3Smtp,PTPMain,TruScan,DCMain,NTPMain,ITPMain,Firewall /qn REBOOT=ReallySuppress ALLUSERS=2
 
 // Delete temp folder
 folder delete "{windows folder}\temp\symantec"
 
-regset64 "[HKEY_LOCAL_MACHINE\SOFTWARE\PSU\Sysman\Applications]" "{value of header "Subject" of active action}"="Install/upgrade - {(month of it as two digits & "/" & day_of_month of it as two digits & "/" & year of it as string) of date (local time zone) of now}"
+regset64 "[HKEY_LOCAL_MACHINE\SOFTWARE\PSU\Sysman\Applications]" "{value of header "Subject" of active action}"="Install/upgrade - {(month of it as two digits &amp; "/" &amp; day_of_month of it as two digits &amp; "/" &amp; year of it as string) of date (local time zone) of now}"
 
-action requires restart
-]]></string>
+action requires restart</string>
                     </dict>
                     <key>2</key>
                     <dict>
@@ -176,13 +259,13 @@ action requires restart
                         <key>ActionNumber</key>
                         <string>Action2</string>
                         <key>ActionScript</key>
-                        <string><![CDATA[
+                        <string>
 
 // Create temp folder
 folder create "{windows folder}\temp\symantec"
 
 // Extract files to temp folder
-wait "{(pathname of client folder of current site) & "\__Download\SEP64.exe"}" -y -gm2 -nr -InstallPath="{(escape of it) of pathname of folder "temp\symantec" of windows folder}"
+wait "{(pathname of client folder of current site) &amp; "\__Download\SEP64.exe"}" -y -gm2 -nr -InstallPath="{(escape of it) of pathname of folder "temp\symantec" of windows folder}"
 
 // Delete SyLink.xml
 delete "{pathname of file whose (name of it as sting as lowecase is "sylink.xml") of folder "temp\symantec" of windows folder}"
@@ -191,15 +274,15 @@ delete "{pathname of file whose (name of it as sting as lowecase is "sylink.xml"
 //to add the Lotus Notes Auto-Protect email feature, add NotesSnapin to ADDLOCAL=, e.g., ADDLOCAL=Core,SAVMain,NotesSnapin
 //similarly, to remove a feature (e.g., the Microsoft Exchange Auto-Protect email feature), remove it from ADDLOCAL, e.g., ADDLOCAL=Core,SAVMain,OutlookSnapin becomes ADDLOCAL=Core,SAVMain
 //note: Pop3Smtp is not supported in 64-bit
-wait "{pathname of system folder & "\msiexec.exe"}" /i "{pathname of file whose (name of it as string as lowercase contains "sep" and name of it ends with ".msi") of folder "temp\symantec" of windows folder}" RUNLIVEUPDATE=1 ENABLEAUTOPROTECT=1 SYMPROTECTDISABLED=0 DISABLEDEFENDER=1 CACHEINSTALL=1 MIGRATESETTINGS=0 ADDLOCAL=Core,SAVMain,Download,OutlookSnapin,Pop3Smtp,PTPMain,TruScan,DCMain,NTPMain,ITPMain,Firewall /qn REBOOT=ReallySuppress ALLUSERS=2
+wait "{pathname of system folder &amp; "\msiexec.exe"}" /i "{pathname of file whose (name of it as string as lowercase contains "sep" and name of it ends with ".msi") of folder "temp\symantec" of windows folder}" RUNLIVEUPDATE=1 ENABLEAUTOPROTECT=1 SYMPROTECTDISABLED=0 DISABLEDEFENDER=1 CACHEINSTALL=1 MIGRATESETTINGS=0 ADDLOCAL=Core,SAVMain,Download,OutlookSnapin,Pop3Smtp,PTPMain,TruScan,DCMain,NTPMain,ITPMain,Firewall /qn REBOOT=ReallySuppress ALLUSERS=2
 
 // Delete temp folder
 folder delete "{windows folder}\temp\symantec"
 
-regset64 "[HKEY_LOCAL_MACHINE\SOFTWARE\PSU\Sysman\Applications]" "{value of header "Subject" of active action}"="Install/upgrade and restart - {(month of it as two digits & "/" & day_of_month of it as two digits & "/" & year of it as string) of date (local time zone) of now}"
+regset64 "[HKEY_LOCAL_MACHINE\SOFTWARE\PSU\Sysman\Applications]" "{value of header "Subject" of active action}"="Install/upgrade and restart - {(month of it as two digits &amp; "/" &amp; day_of_month of it as two digits &amp; "/" &amp; year of it as string) of date (local time zone) of now}"
 
 action requires restart
-restart 0]]></string>
+restart 0</string>
                     </dict>
                     <key>4</key>
                     <dict>
@@ -214,13 +297,13 @@ restart 0]]></string>
                         <key>ActionNumber</key>
                         <string>Action4</string>
                         <key>ActionScript</key>
-                        <string><![CDATA[
+                        <string>
 
 // Create temp folder
 folder create "{windows folder}\temp\symantec"
 
 // Extract files to temp folder
-wait "{(pathname of client folder of current site) & "\__Download\SEP64.exe"}" -y -gm2 -nr -InstallPath="{(escape of it) of pathname of folder "temp\symantec" of windows folder}"
+wait "{(pathname of client folder of current site) &amp; "\__Download\SEP64.exe"}" -y -gm2 -nr -InstallPath="{(escape of it) of pathname of folder "temp\symantec" of windows folder}"
 
 // Delete SyLink.xml
 delete "{pathname of file whose (name of it as sting as lowecase is "sylink.xml") of folder "temp\symantec" of windows folder}"
@@ -229,16 +312,15 @@ delete "{pathname of file whose (name of it as sting as lowecase is "sylink.xml"
 //to add the Lotus Notes Auto-Protect email feature, add NotesSnapin to ADDLOCAL=, e.g., ADDLOCAL=Core,SAVMain,NotesSnapin
 //similarly, to remove a feature (e.g., the Microsoft Exchange Auto-Protect email feature), remove it from ADDLOCAL, e.g., ADDLOCAL=Core,SAVMain,OutlookSnapin becomes ADDLOCAL=Core,SAVMain
 //note: Pop3Smtp is not supported in 64-bit
-wait "{pathname of system folder & "\msiexec.exe"}" /i "{pathname of file whose (name of it as string as lowercase contains "sep" and name of it ends with ".msi") of folder "temp\symantec" of windows folder}" RUNLIVEUPDATE=1 ENABLEAUTOPROTECT=1 SYMPROTECTDISABLED=0 DISABLEDEFENDER=1 CACHEINSTALL=1 MIGRATESETTINGS=0 ADDLOCAL=Core,SAVMain,Download,OutlookSnapin,Pop3Smtp /qn REBOOT=ReallySuppress ALLUSERS=2
+wait "{pathname of system folder &amp; "\msiexec.exe"}" /i "{pathname of file whose (name of it as string as lowercase contains "sep" and name of it ends with ".msi") of folder "temp\symantec" of windows folder}" RUNLIVEUPDATE=1 ENABLEAUTOPROTECT=1 SYMPROTECTDISABLED=0 DISABLEDEFENDER=1 CACHEINSTALL=1 MIGRATESETTINGS=0 ADDLOCAL=Core,SAVMain,Download,OutlookSnapin,Pop3Smtp /qn REBOOT=ReallySuppress ALLUSERS=2
 
 // Delete temp folder
 folder delete "{windows folder}\temp\symantec"
 
-regset64 "[HKEY_LOCAL_MACHINE\SOFTWARE\PSU\Sysman\Applications]" "{value of header "Subject" of active action}"="Install/upgrade without Proactive Threat Protection/Network Threat Protection and restart - {(month of it as two digits & "/" & day_of_month of it as two digits & "/" & year of it as string) of date (local time zone) of now}"
+regset64 "[HKEY_LOCAL_MACHINE\SOFTWARE\PSU\Sysman\Applications]" "{value of header "Subject" of active action}"="Install/upgrade without Proactive Threat Protection/Network Threat Protection and restart - {(month of it as two digits &amp; "/" &amp; day_of_month of it as two digits &amp; "/" &amp; year of it as string) of date (local time zone) of now}"
 
 action requires restart
-restart 0
-]]></string>
+restart 0</string>
                     </dict>
                     <key>10</key>
                     <dict>
@@ -253,13 +335,13 @@ restart 0
                         <key>ActionNumber</key>
                         <string>Action10</string>
                         <key>ActionScript</key>
-                        <string><![CDATA[
+                        <string>
 
 // Create temp folder
 folder create "{windows folder}\temp\symantec"
 
 // Extract files to temp folder
-wait "{(pathname of client folder of current site) & "\__Download\SEP64.exe"}" -y -gm2 -nr -InstallPath="{(escape of it) of pathname of folder "temp\symantec" of windows folder}"
+wait "{(pathname of client folder of current site) &amp; "\__Download\SEP64.exe"}" -y -gm2 -nr -InstallPath="{(escape of it) of pathname of folder "temp\symantec" of windows folder}"
 
 // Delete SyLink.xml
 delete "{pathname of file whose (name of it as sting as lowecase is "sylink.xml") of folder "temp\symantec" of windows folder}"
@@ -268,15 +350,15 @@ delete "{pathname of file whose (name of it as sting as lowecase is "sylink.xml"
 //to add the Lotus Notes Auto-Protect email feature, add NotesSnapin to ADDLOCAL=, e.g., ADDLOCAL=Core,SAVMain,NotesSnapin
 //similarly, to remove a feature (e.g., the Microsoft Exchange Auto-Protect email feature), remove it from ADDLOCAL, e.g., ADDLOCAL=Core,SAVMain,OutlookSnapin becomes ADDLOCAL=Core,SAVMain
 //note: Pop3Smtp is not supported in 64-bit
-wait "{pathname of system folder & "\msiexec.exe"}" /i "{pathname of file whose (name of it as string as lowercase contains "sep" and name of it ends with ".msi") of folder "temp\symantec" of windows folder}" RUNLIVEUPDATE=1 ENABLEAUTOPROTECT=1 SYMPROTECTDISABLED=0 DISABLEDEFENDER=1 CACHEINSTALL=1 MIGRATESETTINGS=0 ADDLOCAL=Core,SAVMain,Download,OutlookSnapin,Pop3Smtp SYMREBOOT=ReallySuppress /qn REBOOT=ReallySuppress ALLUSERS=2 /L* c:\symantec.log
+wait "{pathname of system folder &amp; "\msiexec.exe"}" /i "{pathname of file whose (name of it as string as lowercase contains "sep" and name of it ends with ".msi") of folder "temp\symantec" of windows folder}" RUNLIVEUPDATE=1 ENABLEAUTOPROTECT=1 SYMPROTECTDISABLED=0 DISABLEDEFENDER=1 CACHEINSTALL=1 MIGRATESETTINGS=0 ADDLOCAL=Core,SAVMain,Download,OutlookSnapin,Pop3Smtp SYMREBOOT=ReallySuppress /qn REBOOT=ReallySuppress ALLUSERS=2 /L* c:\symantec.log
 
 // Delete temp folder
 folder delete "{windows folder}\temp\symantec"
 
-regset64 "[HKEY_LOCAL_MACHINE\SOFTWARE\PSU\Sysman\Applications]" "{value of header "Subject" of active action}"="Install/upgrade without Proactive Threat Protection/Network Threat Protection - {(month of it as two digits & "/" & day_of_month of it as two digits & "/" & year of it as string) of date (local time zone) of now}"
+regset64 "[HKEY_LOCAL_MACHINE\SOFTWARE\PSU\Sysman\Applications]" "{value of header "Subject" of active action}"="Install/upgrade without Proactive Threat Protection/Network Threat Protection - {(month of it as two digits &amp; "/" &amp; day_of_month of it as two digits &amp; "/" &amp; year of it as string) of date (local time zone) of now}"
 
 action requires restart
-]]></string>
+</string>
                     </dict>
 
                 </dict>
