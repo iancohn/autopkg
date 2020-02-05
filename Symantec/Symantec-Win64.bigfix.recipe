@@ -152,7 +152,7 @@
                     <string>/*64-bit only*/ x64 of operating system</string>
                     <string>not member of group 2083502 /*Windows Server OS Group*/ of site "CustomSite_PSU"</string>
                     <string>not member of group 47448 /*CLM Division*/ of sites</string>
-                    <string><![CDATA[not exists key whose (value "DisplayName" of it as string contains "Symantec Endpoint Protection" AND (it >= "%bes_version%" as version) of (value "DisplayVersion" of it as string as version)) of key "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall" of x64 registry]]></string>
+                    <string>not exists key whose (value "DisplayName" of it as string contains "Symantec Endpoint Protection" AND (it &gt;= "%bes_version%" as version) of (value "DisplayVersion" of it as string as version)) of key "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall" of x64 registry</string>
                 </array>
                 <key>bes_actions</key>
                 <dict>
