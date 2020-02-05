@@ -333,7 +333,7 @@ restart 0</string>
                         <key>ActionNumber</key>
                         <string>Action10</string>
                         <key>ActionScript</key>
-                        <string>
+                        <!--<string>
 
 // Create temp folder
 folder create "{windows folder}\temp\symantec"
@@ -356,7 +356,7 @@ folder delete "{windows folder}\temp\symantec"
 regset64 "[HKEY_LOCAL_MACHINE\SOFTWARE\PSU\Sysman\Applications]" "{value of header "Subject" of active action}"="Install/upgrade without Proactive Threat Protection/Network Threat Protection - {(month of it as two digits &amp; "/" &amp; day_of_month of it as two digits &amp; "/" &amp; year of it as string) of date (local time zone) of now}"
 
 action requires restart
-</string>
+change this string tag--><string/>
 </dict>
 
                 </dict>
