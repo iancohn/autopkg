@@ -54,13 +54,13 @@
 <P>Penn State has a site license for Symantec Endpoint Protection (formerly Symantec AntiVirus Corporate Edition), which provides a cost-free virus protection solution with which faculty, staff and students can protect their computers.</P></BLOCKQUOTE>
 <P><STRONG><FONT size=3>About This Task</FONT></STRONG></P>
 <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
-<P>This task will install/upgrade: Symantec Endpoint Protection %bes_version% (64-bit).<BR><BR>This task is applicable on: Windows XP and higher (64-bit).&nbsp;</P></BLOCKQUOTE>
+<P>This task will install/upgrade: Symantec Endpoint Protection %bes_version% (64-bit).<BR><BR>This task is applicable on: Windows XP and higher (64-bit). </P></BLOCKQUOTE>
 <P dir=ltr><STRONG><FONT size=3>Action Description</FONT></STRONG></P>
 <UL dir=ltr>
 <LI>
 <DIV><STRONG>Action1: Install/upgrade.</STRONG></DIV></LI></UL>
 <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
-<P>This action&nbsp;installs Symantec Endpoint Protection with the default settings and components, i.e.:</P>
+<P>This action installs Symantec Endpoint Protection with the default settings and components, i.e.:</P>
 <UL>
 <LI>Virus, Spyware, and Basic Download Protection
 <UL>
@@ -82,7 +82,7 @@
 <DIV><STRONG>Action2: Install/upgrade and restart.</STRONG></DIV></LI></UL>
 <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
 <P dir=ltr>This action performs the same action as Action1; however, it also restarts the client computer when the installation is finished.</P>
-<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG><FONT color=#ff0000>Important note:</FONT></STRONG> This action forces an immediate restart; if a user is logged on,&nbsp;he or she&nbsp;will receive a warning message with a 60-second countdown. Please schedule the action to occur when such a service interruption is acceptable</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG><FONT color=#ff0000>Important note:</FONT></STRONG> This action forces an immediate restart; if a user is logged on, that user will receive a warning message with a 60-second countdown. Please schedule the action to occur when such a service interruption is acceptable</P></BLOCKQUOTE>
 <UL dir=ltr>
 <LI>
 <DIV><STRONG>Action3: Install/upgrade without Proactive Threat Protection/Network Threat Protection.</STRONG></DIV></LI></UL>
@@ -102,7 +102,7 @@
 <DIV><STRONG>Action4: Install/upgrade without Proactive Threat Protection/Network Threat Protection and restart.</STRONG></DIV></LI></UL>
 <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
 <P>This action performs the same action as Action3; however, it also restarts the client computer when the installation is finished.</P>
-<P><STRONG><FONT color=#ff0000>Important note:</FONT></STRONG> This action forces an immediate restart; if a user is logged on,&nbsp;he or she&nbsp;will receive a warning message with a 60-second countdown. Please schedule the action to occur when such a service interruption is acceptable.</P></BLOCKQUOTE>
+<P><STRONG><FONT color=#ff0000>Important note:</FONT></STRONG> This action forces an immediate restart; if a user is logged on, that user will receive a warning message with a 60-second countdown. Please schedule the action to occur when such a service interruption is acceptable.</P></BLOCKQUOTE>
 <UL dir=ltr>
 <LI><STRONG>Action10: Make available in Self Service.</STRONG></LI></UL>
 <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
@@ -135,11 +135,11 @@
                 <key>OfferCategory</key>
                 <string>Utilities</string>
                 <key>OfferDescriptionHTML</key>
-                <string><![CDATA[<STRONG><FONT size=3>About Symantec Endpoint Protection</FONT></STRONG>&nbsp;
+                <string><![CDATA[<STRONG><FONT size=3>About Symantec Endpoint Protection</FONT></STRONG>
                     <BLOCKQUOTE>
                     <P dir=ltr><FONT size=3>Symantec Endpoint Protection is a security software suite, which consists of anti-malware, intrusion prevention and firewall features for server and desktop computers.</FONT></P>
                     </BLOCKQUOTE>
-                    <P>&nbsp;<FONT color=#0080ff size=3><STRONG>Licensing</STRONG></FONT></P>
+                    <P> <FONT color=#0080ff size=3><STRONG>Licensing</STRONG></FONT></P>
                     <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
                     <P dir=ltr><FONT size=3>Symantec Endpoint Protection is free for Penn State systems.</FONT></P></BLOCKQUOTE>]]></string>
                 <key>bes_ssa</key>
@@ -162,7 +162,7 @@
                         <array>
                           <string>Action 3 - </string>
                           <string>Install/Upgrade</string>
-                          <string><![CDATA[&nbsp;without Proactive Threat Protection/Network Threat Protection.]]></string>
+                          <string><![CDATA[ without Proactive Threat Protection/Network Threat Protection.]]></string>
                         </array>
                         <key>ActionName</key>
                         <string>Action</string>
@@ -250,7 +250,7 @@ action requires restart</string>
                         <array>
                             <string>Action2 - </string>
                             <string>Install/Upgrade</string>
-                            <string><![CDATA[&nbsp;and restart.]]></string>
+                            <string><![CDATA[ and restart.]]></string>
                         </array>
                         <key>ActionName</key>
                         <string>Action</string>
@@ -288,7 +288,7 @@ restart 0</string>
                         <array>
                             <string>Action4 - </string>
                             <string>Install/Upgrade</string>
-                            <string><![CDATA[&nbsp;without Proactive Threat Protection/Network Threat Protection and restart.]]></string>
+                            <string><![CDATA[ without Proactive Threat Protection/Network Threat Protection and restart.]]></string>
                         </array>
                         <key>ActionName</key>
                         <string>Action</string>
@@ -326,7 +326,7 @@ restart 0</string>
                         <array>
                             <string>Action10 - </string>
                             <string>Make Available</string>
-                            <string><![CDATA[&nbsp;in Self Service.]]></string>
+                            <string><![CDATA[ in Self Service.]]></string>
                         </array>
                         <key>ActionName</key>
                         <string>Action</string>
