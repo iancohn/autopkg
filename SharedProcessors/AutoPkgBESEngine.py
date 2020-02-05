@@ -116,6 +116,7 @@ class AutoPkgBESEngine(Processor):
     def __init__(self, env):
         self.env = env
         self.doc = etree.ElementTree()
+        self.output("inside __init__")
     print "starting def get_direct_url"
     def get_direct_url(self, url):
         """
