@@ -331,15 +331,15 @@ class AutoPkgBESEngine(Processor):
         gmtime_now = strftime("%a, %d %b %Y %X +0000", gmtime())
 
         bes_displayname = self.env.get("NAME")
-
+        self.output("ln 334")
         bes_version = self.env.get("bes_version")
-
+        self.output("ln336")
         bes_title = self.env.get("bes_title",
                                  "Deploy %s %s" %
                                  (bes_displayname, bes_version))
-
+        self.output("ln 340")
         bes_category = self.env.get("bes_category", 'Software Deployment')
-
+        self.output("ln342")
         bes_relevance = self.env.get("bes_relevance")
         self.output("ln 344")
         if skipPrefetch != True:
