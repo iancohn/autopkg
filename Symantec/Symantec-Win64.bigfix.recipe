@@ -156,7 +156,7 @@
                 </array>
                 <key>bes_actions</key>
                 <dict>
-                    <key>3</key>
+                    <!--<key>3</key>
                     <dict>
                         <key>Description</key>
                         <array>
@@ -319,7 +319,7 @@ regset64 "[HKEY_LOCAL_MACHINE\SOFTWARE\PSU\Sysman\Applications]" "{value of head
 
 action requires restart
 restart 0</string>
-                    </dict>
+                    </dict>-->
                     <key>10</key>
                     <dict>
                         <key>Description</key>
@@ -357,7 +357,7 @@ regset64 "[HKEY_LOCAL_MACHINE\SOFTWARE\PSU\Sysman\Applications]" "{value of head
 
 action requires restart
 </string>
-                    </dict>
+</dict>
 
                 </dict>
             </dict>
