@@ -33,7 +33,7 @@
         <dict>
             <key>Arguments</key>
             <dict>
-                <key>pathname</key>
+                <key>bes_softwareinstaller</key>
                 <string>%destination_path%</string>
                 <key>bes_overrideurl</key>
                 <string>http://bes.win.psu.edu:52311/ManualUploads/PSU-Windows/Symantec/sep-%bes_version%.exe</string>
@@ -43,7 +43,7 @@
                 <string>Install/Upgrade: Symantec Endpoint Protection %bes_version% - (64-bit) - Windows</string>
                 <key>bes_icon</key>
                 <string>http://bes.win.psu.edu:52311/ManualUploads/PSU/Icons/Symantec-EndpointProtection.png</string>
-                <key>bes_description</key><!--
+                <key>bes_description</key>
                 <string><![CDATA[<P><STRONG><FONT size=3>About Symantec Endpoint Protection</FONT></STRONG></P>
 <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
 <P>Symantec Endpoint Protection is an anti-malware and software firewall product for both personal and corporate systems.</P>
@@ -129,21 +129,13 @@
 <LI>
 <DIV><STRONG>Managed Clients</STRONG></DIV></LI></UL>
 <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
-<P>This task installs the unmanged version of Symantec Endpoint Protection. For a managed installation, it is recommended to create an installer from your SEP Management server. You may wish to use the Fixlet Maker dashboard to use the SysMan provided template - 'Configuration: Convert to Managed Symantec Endpoint Protection Client - Windows' to create a deployment task for your installation.</P></BLOCKQUOTE>]]>
-                --><string>Alt description</string>
+<P>This task installs the unmanged version of Symantec Endpoint Protection. For a managed installation, it is recommended to create an installer from your SEP Management server. You may wish to use the Fixlet Maker dashboard to use the SysMan provided template - 'Configuration: Convert to Managed Symantec Endpoint Protection Client - Windows' to create a deployment task for your installation.</P></BLOCKQUOTE>]]></string>
                 <key>bes_category</key>
                 <string>Internet &amp; Web</string>
                 <key>OfferCategory</key>
                 <string>Utilities</string>
-                <key>OfferDescriptionHTML</key><!--
-                <string><![CDATA[<STRONG><FONT size=3>About Symantec Endpoint Protection</FONT></STRONG>
-                    <BLOCKQUOTE>
-                    <P dir=ltr><FONT size=3>Symantec Endpoint Protection is a security software suite, which consists of anti-malware, intrusion prevention and firewall features for server and desktop computers.</FONT></P>
-                    </BLOCKQUOTE>
-                    <P> <FONT color=#0080ff size=3><STRONG>Licensing</STRONG></FONT></P>
-                    <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
-                    <P dir=ltr><FONT size=3>Symantec Endpoint Protection is free for Penn State systems.</FONT></P></BLOCKQUOTE>]]>
-                --><string>A description</string>
+                <key>OfferDescriptionHTML</key>
+                <string>A description</string>
                 <key>bes_ssa</key>
                 <string>True</string>
                 <key>bes_ssaaction</key>
@@ -158,7 +150,7 @@
                 </array>
                 <key>bes_actions</key>
                 <dict>
-                    <!--<key>3</key>
+                    <key>3</key>
                     <dict>
                         <key>Description</key>
                         <array>
@@ -321,7 +313,7 @@ regset64 "[HKEY_LOCAL_MACHINE\SOFTWARE\PSU\Sysman\Applications]" "{value of head
 
 action requires restart
 restart 0</string>
-                    </dict>-->
+                    </dict>
                     <key>10</key>
                     <dict>
                         <key>Description</key>
@@ -334,7 +326,7 @@ restart 0</string>
                         <string>Action</string>
                         <key>ActionNumber</key>
                         <string>Action10</string>
-                        <key>ActionScript</key><!--
+                        <key>ActionScript</key>
                         <string>
 
 // Create temp folder
@@ -357,15 +349,13 @@ folder delete "{windows folder}\temp\symantec"
 
 regset64 "[HKEY_LOCAL_MACHINE\SOFTWARE\PSU\Sysman\Applications]" "{value of header "Subject" of active action}"="Install/upgrade without Proactive Threat Protection/Network Threat Protection - {(month of it as two digits &amp; "/" &amp; day_of_month of it as two digits &amp; "/" &amp; year of it as string) of date (local time zone) of now}"
 
-action requires restart
-change this string tag-->
-                        <string>action requires restart</string>
+action requires restart</string>
 </dict>
 
                 </dict>
             </dict>
             <key>Processor</key>
-            <string>com.github.iancohn.SharedProcessors/AutoPkgBESEngine</string>
+            <string>AutoPkgBESEngine</string>
         </dict>
 <!--        <dict>
             <key>Processor</key>
