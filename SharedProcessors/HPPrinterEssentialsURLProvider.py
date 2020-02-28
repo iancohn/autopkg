@@ -22,9 +22,9 @@ from autopkglib import Processor, ProcessorError, URLGetter
 import json
 from platform import mac_ver, python_version
 if python_version() >= "3":
-    from urllib.request import quote
+    from urllib.parse import quote
 else:
-    from urllib import quote_plus as quote
+    from urllib import quote
 
 BASE_URL = ('https://h20614.www2.hp.com/ediags/solutions/software/v3?'
                'os={OS}&'
