@@ -36,7 +36,7 @@ __all__ = ["HPPrinterEssentialsURLProvider"]
 
 class HPPrinterEssentialsURLProvider(URLGetter):
     """Scrape HP's feed for the url path to the latest release of HP Printer Essentials."""
-    description = "Provides Download URL for Microsoft Edge"
+    description = "Provides Download URL for HP Printer Essentials software"
     input_variables = {
         "OS": {
             "required": False,
@@ -88,7 +88,7 @@ class HPPrinterEssentialsURLProvider(URLGetter):
 
         self.output("Retrieving URL Feed from %s." % feed_url)
 
-        blob = self.download(MSEDGE_URL_FEED)
+        blob = self.download(feed_url)
         feed_json = json.loads(blob)
 
         self.output("Extracting JSON Values for %s - %s" % (OS, MODEL_NAME))
