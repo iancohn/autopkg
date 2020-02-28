@@ -23,8 +23,8 @@ import json
 from platform import mac_ver
 
 BASE_URL = ('https://h20614.www2.hp.com/ediags/solutions/software/v3?'
-               'ProductNumber={product_number}&'
-               'OS={OS}&'
+               'os={OS}&'
+               'ModelName={MODEL_NAME}&'
                'lc={LANGUAGE_CODE}&'
                'cc={COUNTRY_CODE}')
 
