@@ -83,8 +83,8 @@ class HPPrinterEssentialsURLProvider(URLGetter):
 
     def main(self):
 
-        OS = urllib.quote(self.env.get("OS", self.input_variables["OS"]["default"]))
-        MODEL_NAME = urllib.quote(self.env.get("MODEL_NAME", self.input_variables["MODEL_NAME"]["default"]))
+        OS = quote(self.env.get("OS", self.input_variables["OS"]["default"]))
+        MODEL_NAME = quote(self.env.get("MODEL_NAME", self.input_variables["MODEL_NAME"]["default"]))
         LANGUAGE_CODE = self.env.get("LANGUAGE_CODE", self.input_variables["LANGUAGE_CODE"]["default"])
         COUNTRY_CODE = self.env.get("COUNTRY_CODE", self.input_variables["COUNTRY_CODE"]["default"])
 
