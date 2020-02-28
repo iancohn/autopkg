@@ -21,7 +21,7 @@ from __future__ import absolute_import
 from autopkglib import Processor, ProcessorError, URLGetter
 import json
 from platform import mac_ver
-from urllib import quote_plus
+import urllib
 
 BASE_URL = ('https://h20614.www2.hp.com/ediags/solutions/software/v3?'
                'os={OS}&'
@@ -80,8 +80,8 @@ class HPPrinterEssentialsURLProvider(URLGetter):
 
     def main(self):
 
-        OS = quote_plus(self.env.get("OS", self.input_variables["OS"]["default"]))
-        MODEL_NAME = quote_plus(self.env.get("MODEL_NAME", self.input_variables["MODEL_NAME"]["default"]))
+        OS = urllib.quote_plus(self.env.get("OS", self.input_variables["OS"]["default"]))
+        MODEL_NAME = urllib.quote_plus(self.env.get("MODEL_NAME", self.input_variables["MODEL_NAME"]["default"]))
         LANGUAGE_CODE = self.env.get("LANGUAGE_CODE", self.input_variables["LANGUAGE_CODE"]["default"])
         COUNTRY_CODE = self.env.get("COUNTRY_CODE", self.input_variables["COUNTRY_CODE"]["default"])
 
