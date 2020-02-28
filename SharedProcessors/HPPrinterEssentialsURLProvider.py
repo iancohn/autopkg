@@ -21,7 +21,7 @@ from __future__ import absolute_import
 from autopkglib import Processor, ProcessorError, URLGetter
 import json
 from platform import mac_ver, python_version
-if python_version() >= 3:
+if python_version() >= "3":
     from urllib.request import quote
 else:
     from urllib import quote_plus as quote
