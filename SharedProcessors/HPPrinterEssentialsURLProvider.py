@@ -97,7 +97,7 @@ class HPPrinterEssentialsURLProvider(URLGetter):
             item = None
             #select only the first result that returns with the correct Title
             for i in feed_json:
-                if i["Title"] == "Essential Software"
+                if i["Title"] == "Essential Software":
                     item = i
                     break
             if item == None:
