@@ -24,7 +24,7 @@
 					<key>url</key>
 					<string>%url%</string>
 					<key>filename</key>
-					<string>hp-printer-essentials-%installer_version%.pkg</string>
+					<string>hp-printer-essentials-%version%.pkg</string>
 				</dict>
 			</dict>
 			<dict>
