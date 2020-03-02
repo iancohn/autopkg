@@ -38,6 +38,10 @@
 					<dict>
 						<key>Library/Printers</key>
 						<string>0775</string>
+						<key>Library/Printers/hp</key>
+						<string>0775</string>
+						<key>Library/Printers/hp/filter</key>
+						<string>0775</string>
 					</dict>
 				</dict>
 			</dict>
