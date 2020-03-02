@@ -71,7 +71,7 @@
 					<key>pkg_payload_path</key>
 					<string>%RECIPE_CACHE_DIR%/HPPrinterEssentials/com.hp.print.DriverCore.A.pkg/Payload</string>
 					<key>destination_path</key>
-					<string>%RECIPE_CACHE_DIR%/Framework</string>
+					<string>%destination_path%</string>
 					<key>purge_destination</key>
 					<false/>
 				</dict>
