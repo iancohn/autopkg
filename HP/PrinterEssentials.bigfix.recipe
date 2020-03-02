@@ -33,7 +33,7 @@
 				<key>Arguments</key>
 				<dict>
 						<key>pattern</key>
-						<string>%RECIPE_CACHE_DIR%/HPPrinterDrivers/com.hp.print.ps.support.*.cpe.pkg</string>
+						<string>com.hp.print.ps.support.*.cpe.pkg</string>
 				</dict>
 			</dict>
 			<dict>
@@ -46,7 +46,7 @@
 					<key>destination_path</key>
 					<string>%RECIPE_CACHE_DIR%/HPPrinterDrivers</string>
 					<key>purge_destination</key>
-					<false/>
+					<true/>
 				</dict>
 			</dict>
 			<dict>
