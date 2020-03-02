@@ -104,7 +104,7 @@
 						<array>
 							<dict>
 								<key>path</key>
-								<string>Applications/Printers</string>
+								<string>Library/Printers</string>
 								<key>user</key>
 								<string>root</string>
 								<key>group</key>
