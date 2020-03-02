@@ -75,7 +75,7 @@
 					<key></key>
 				</dict>
 			</dict>
-			<!--<dict>
+			<dict>
 				<key>Processor</key>
 				<string>Copier</string>
 				<key>Arguments</key>
@@ -85,8 +85,8 @@
 					<key>destination_path</key>
 					<string>%RECIPE_CACHE_DIR%/HPPrinterDrivers</string>
 				</dict>
-			</dict>-->
-			<dict>
+			</dict>
+<!--			<dict>
 				<key>Processor</key>
 				<string>PkgCreator</string>
 				<key>Arguments</key>
@@ -114,7 +114,7 @@
 						</array>
 					</dict>
 				</dict>
-			</dict>
+			</dict>-->
 			<dict>
 				<key>Processor</key>
 				<string>EndOfCheckPhase</string>
