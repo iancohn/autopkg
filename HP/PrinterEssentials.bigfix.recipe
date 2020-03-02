@@ -23,6 +23,8 @@
 					<string>%pathname%</string>
 					<key>destination_path</key>
 					<string>%RECIPE_CACHE_DIR%/HPPrinterEssentials</string>
+					<key>purge_destination</key>
+					<true/>
 				</dict>
 			</dict>
 			<dict>
