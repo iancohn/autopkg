@@ -5,7 +5,7 @@
 		<key>Description</key>
 		<string>Downloads the latest version of HP Printer Essentials Software</string>
 		<key>Identifier</key>
-		<string>com.github.iancohn.download.HPPrinterEssentials</string>
+		<string>com.github.iancohn.bigfix.HPPrinterEssentials</string>
 		<key>Input</key>
 		<dict/>
 		<key>MinimumVersion</key>
