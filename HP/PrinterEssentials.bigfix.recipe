@@ -27,7 +27,7 @@
 					<true/>
 				</dict>
 			</dict>
-			<dict>
+<!--			<dict>
 				<key>Processor</key>
 				<string>PkgRootCreator</string>
 				<key>Arguments</key>
@@ -86,7 +86,7 @@
 					<string>%RECIPE_CACHE_DIR%/HPPrinterDrivers</string>
 				</dict>
 			</dict>
-<!--			<dict>
+			<dict>
 				<key>Processor</key>
 				<string>PkgCreator</string>
 				<key>Arguments</key>
