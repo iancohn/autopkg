@@ -29,11 +29,20 @@
 			</dict>
 			<dict>
 				<key>Processor</key>
+				<string>FileFinder</string>
+				<key>Arguments</key>
+				<dict>
+						<key>pattern</key>
+						<string>%RECIPE_CACHE_DIR%/HPPrinterDrivers/com.hp.print.ps.support.*.cpe.pkg</string>
+				</dict>
+			</dict>
+			<dict>
+				<key>Processor</key>
 				<string>PkgPayloadUnpacker</string>
 				<key>Arguments</key>
 				<dict>
 					<key>pkg_payload_path</key>
-					<string>%RECIPE_CACHE_DIR%/HPPrinterEssentials/hp-printer-essentials-S.version.pkg/Payload</string>
+					<string>%found_filename/Payload</string>
 					<key>destination_path</key>
 					<string>%RECIPE_CACHE_DIR%/HPPrinterDrivers</string>
 					<key>purge_destination</key>
