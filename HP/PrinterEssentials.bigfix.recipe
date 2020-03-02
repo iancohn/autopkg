@@ -63,6 +63,45 @@
 					<true/>
 				</dict>
 			</dict>
+			<dict>
+				<key>Processor</key>
+				<string>PkgPayloadUnpacker</string>
+				<key>Arguments</key>
+				<dict>
+					<key>pkg_payload_path</key>
+					<string>%RECIPE_CACHE_DIR%/HPPrinterEssentials/com.hp.print.DriverCore.A.pkg/Payload</string>
+					<key>destination_path</key>
+					<string>%RECIPE_CACHE_DIR%/HPPrinterDrivers</string>
+					<key>purge_destination</key>
+					<false/>
+				</dict>
+			</dict>
+			<dict>
+				<key>Processor</key>
+				<string>PkgPayloadUnpacker</string>
+				<key>Arguments</key>
+				<dict>
+					<key>pkg_payload_path</key>
+					<string>%RECIPE_CACHE_DIR%/HPPrinterEssentials/com.hp.print.hpPreProcessing.pkg/Payload</string>
+					<key>destination_path</key>
+					<string>%RECIPE_CACHE_DIR%/HPPrinterDrivers</string>
+					<key>purge_destination</key>
+					<false/>
+				</dict>
+			</dict>
+			<dict>
+				<key>Processor</key>
+				<string>PkgPayloadUnpacker</string>
+				<key>Arguments</key>
+				<dict>
+					<key>pkg_payload_path</key>
+					<string>%RECIPE_CACHE_DIR%/HPPrinterEssentials/com.hp.print.ps.pde.pkg/Payload</string>
+					<key>destination_path</key>
+					<string>%RECIPE_CACHE_DIR%/HPPrinterDrivers</string>
+					<key>purge_destination</key>
+					<false/>
+				</dict>
+			</dict>
 <!--			<dict>
 				<key>Processor</key>
 				<string>Copier</string>
