@@ -16,12 +16,12 @@
 		<array>
 			<dict>
 				<key>Processor</key>
-				<string>PkgExtractor</string>
+				<string>FlatPkgUnpacker</string>
 				<key>Arguments</key>
 				<dict>
-					<key>pkg_path</key>
+					<key>flat_pkg_path</key>
 					<string>%pathname%</string>
-					<key>extract_root</key>
+					<key>destination_path</key>
 					<string>%recipe_cache_dir%</string>
 				</dict>
 			</dict>
