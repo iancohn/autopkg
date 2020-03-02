@@ -27,7 +27,6 @@
 					<true/>
 				</dict>
 			</dict>
-<!--
 			<dict>
 				<key>Processor</key>
 				<string>PkgRootCreator</string>
@@ -37,12 +36,11 @@
 					<string>%RECIPE_CACHE_DIR%/HPPrinterDrivers</string>
 					<key>pkgdirs</key>
 					<dict>
-						<key>Library/Printers</key>
+						<key>Applications</key>
 						<string>0775</string>
 					</dict>
 				</dict>
 			</dict>
--->
 			<dict>
 				<key>Processor</key>
 				<string>FileFinder</string>
