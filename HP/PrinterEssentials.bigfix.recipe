@@ -27,7 +27,7 @@
 					<true/>
 				</dict>
 			</dict>
-<!--			<dict>
+			<dict>
 				<key>Processor</key>
 				<string>PkgRootCreator</string>
 				<key>Arguments</key>
@@ -72,7 +72,6 @@
 					<string>%found_filename%/Scripts</string>
 					<key>destination_path</key>
 					<string>%RECIPE_CACHE_DIR%/HPPrinterDrivers</string>
-					<key></key>
 				</dict>
 			</dict>
 			<dict>
@@ -114,7 +113,7 @@
 						</array>
 					</dict>
 				</dict>
-			</dict>-->
+			</dict>
 			<dict>
 				<key>Processor</key>
 				<string>EndOfCheckPhase</string>
