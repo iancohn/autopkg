@@ -27,7 +27,7 @@
 					<true/>
 				</dict>
 			</dict>
-<!--			<dict>
+			<dict>
 				<key>Processor</key>
 				<string>PkgRootCreator</string>
 				<key>Arguments</key>
@@ -40,7 +40,7 @@
 						<string>0775</string>
 					</dict>
 				</dict>
-			</dict>-->
+			</dict>
 			<dict>
 				<key>Processor</key>
 				<string>FileFinder</string>
@@ -71,7 +71,7 @@
 					<key>source_path</key>
 					<string>%found_filename%/Scripts</string>
 					<key>destination_path</key>
-					<string>%RECIPE_CACHE_DIR%/HPPrinterDrivers</string>
+					<string>%RECIPE_CACHE_DIR%/HPPrinterDrivers/Scripts</string>
 				</dict>
 			</dict>
 			<dict>
@@ -82,7 +82,7 @@
 					<key>source_path</key>
 					<string>%found_filename%/PackageInfo</string>
 					<key>destination_path</key>
-					<string>%RECIPE_CACHE_DIR%/HPPrinterDrivers</string>
+					<string>%RECIPE_CACHE_DIR%/HPPrinterDrivers/PackageInfo</string>
 				</dict>
 			</dict>
 			<dict>
