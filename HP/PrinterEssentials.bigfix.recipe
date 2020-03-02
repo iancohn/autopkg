@@ -29,14 +29,14 @@
 				<key>Processor</key>
 				<string>PkgPayloadUnpacker</string>
 				<key>Arguments</key>
-				<array>
+				<dict>
 					<key>pkg_payload_path</key>
 					<string>%RECIPE_CACHE_DIR%/HPPrinterEssentials/hp-printer-essentials-S.version.pkg</string>
 					<key>destination_path</key>
 					<string>%RECIPE_CACHE_DIR%/HPPrinterDrivers</string>
 					<key>purge_destination</key>
 					<false/>
-				</array>
+				</dict>
 			</dict>
 			<dict>
 				<key>Processor</key>
