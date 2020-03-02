@@ -47,19 +47,6 @@
 			</dict>
 			<dict>
 				<key>Processor</key>
-				<string>PkgPayloadUnpacker</string>
-				<key>Arguments</key>
-				<dict>
-					<key>pkg_payload_path</key>
-					<string>%RECIPE_CACHE_DIR%/HPPrinterEssentials/com.hp.print.hpPreProcessing.pkg/Payload</string>
-					<key>destination_path</key>
-					<string>%RECIPE_CACHE_DIR%/HPPrinterDrivers</string>
-					<key>purge_destination</key>
-					<false/>
-				</dict>
-			</dict>
-			<dict>
-				<key>Processor</key>
 				<string>FileFinder</string>
 				<key>Arguments</key>
 				<dict>
@@ -86,11 +73,46 @@
 				<key>Arguments</key>
 				<dict>
 					<key>pkg_payload_path</key>
+					<string>%RECIPE_CACHE_DIR%/HPPrinterEssentials/com.hp.print.hpPreProcessing.pkg/Payload</string>
+					<key>destination_path</key>
+					<string>%RECIPE_CACHE_DIR%/preProcess</string>
+					<key>purge_destination</key>
+					<true/>
+				</dict>
+			</dict>
+			<dict>
+				<key>Processor</key>
+				<string>Copier</string>
+				<key>Arguments</key>
+				<dict>
+					<key>source_path</key>
+					<string>%RECIPE_CACHE_DIR%/preProcess</string>
+					<key>destination_path</key>
+					<string>%pkgroot%</string>
+				</dict>
+			</dict>
+			<dict>
+				<key>Processor</key>
+				<string>PkgPayloadUnpacker</string>
+				<key>Arguments</key>
+				<dict>
+					<key>pkg_payload_path</key>
 					<string>%RECIPE_CACHE_DIR%/HPPrinterEssentials/com.hp.print.DriverCore.A.pkg/Payload</string>
 					<key>destination_path</key>
-					<string>%destination_path%</string>
+					<string>%destination_path%/DriverCore</string>
 					<key>purge_destination</key>
 					<false/>
+				</dict>
+			</dict>
+			<dict>
+				<key>Processor</key>
+				<string>Copier</string>
+				<key>Arguments</key>
+				<dict>
+					<key>source_path</key>
+					<string>%RECIPE_CACHE_DIR%/DriverCore</string>
+					<key>destination_path</key>
+					<string>%pkgroot%</string>
 				</dict>
 			</dict>
 			<dict>
@@ -101,9 +123,20 @@
 					<key>pkg_payload_path</key>
 					<string>%RECIPE_CACHE_DIR%/HPPrinterEssentials/com.hp.print.ps.pde.pkg/Payload</string>
 					<key>destination_path</key>
-					<string>%destination_path%</string>
+					<string>%destination_path%/pde</string>
 					<key>purge_destination</key>
 					<false/>
+				</dict>
+			</dict>
+			<dict>
+				<key>Processor</key>
+				<string>Copier</string>
+				<key>Arguments</key>
+				<dict>
+					<key>source_path</key>
+					<string>%RECIPE_CACHE_DIR%/pde</string>
+					<key>destination_path</key>
+					<string>%pkgroot%</string>
 				</dict>
 			</dict>
 <!--			<dict>
