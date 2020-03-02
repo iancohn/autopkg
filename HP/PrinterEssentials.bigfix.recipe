@@ -29,11 +29,25 @@
 			</dict>
 			<dict>
 				<key>Processor</key>
+				<string>PkgRootCreator</string>
+				<key>Arguments</key>
+				<dict>
+					<key>pkgroot</key>
+					<string>%RECIPE_CACHE_DIR%/HPPrinterDrivers</string>
+					<key>pkgdirs</key>
+					<dict>
+						<key>Library/Printers</key>
+						<string>0775</string>
+					</dict>
+				</dict>
+			</dict>
+			<dict>
+				<key>Processor</key>
 				<string>FileFinder</string>
 				<key>Arguments</key>
 				<dict>
 						<key>pattern</key>
-						<string>%RECIPE_CACHE_DIR%/HPPrinterEssentials/com.hp.print.ps.support.*.cpe.pkg/Payload</string>
+						<string>%RECIPE_CACHE_DIR%/HPPrinterEssentials/com.hp.print.ps.support.*.cpe.pkg</string>
 				</dict>
 			</dict>
 			<dict>
@@ -42,11 +56,62 @@
 				<key>Arguments</key>
 				<dict>
 					<key>pkg_payload_path</key>
-					<string>%found_filename%</string>
+					<string>%found_filename%/Payload</string>
 					<key>destination_path</key>
-					<string>%RECIPE_CACHE_DIR%/HPPrinterDrivers</string>
+					<string>%pkgroot%</string>
 					<key>purge_destination</key>
 					<true/>
+				</dict>
+			</dict>
+			<dict>
+				<key>Processor</key>
+				<string>Copier</string>
+				<key>Arguments</key>
+				<dict>
+					<key>source_path</key>
+					<string>%found_filename%/Scripts</string>
+					<key>destination_path</key>
+					<string>%pkgroot%</string>
+				</dict>
+			</dict>
+			<dict>
+				<key>Processor</key>
+				<string>Copier</string>
+				<key>Arguments</key>
+				<dict>
+					<key>source_path</key>
+					<string>%found_filename%/PackageInfo</string>
+					<key>destination_path</key>
+					<string>%pkgroot%</string>
+				</dict>
+			</dict>
+			<dict>
+				<key>Processor</key>
+				<string>PkgCreator</string>
+				<key>Arguments</key>
+				<dict>
+					<key>pkgname</key>
+					<string>HPPrinterDrivers-%version%</string>
+					<key>pkg_request</key>
+					<dict>
+						<key>pkgdir</key>
+						<string>%RECIPE_CACHE_DIR%</string>
+						<key>id</key>
+						<string>com.hp.printerdrivers</string>
+						<key>options</key>
+						<string>purge_ds_store</string>
+						<key>chown</key>
+						<array>
+							<dict>
+								<key>path</key>
+								<string>Applications/Printers</string>
+								<key>user</key>
+								<string>root</string>
+								<key>group</key>
+								<string>admin</string>
+							</dict>
+						</array>
+					</dict>
 				</dict>
 			</dict>
 			<dict>
