@@ -67,7 +67,7 @@
 					<false/>
 				</dict>
 			</dict>
-			<dict>
+<!--			<dict>
 				<key>Processor</key>
 				<string>PkgPayloadUnpacker</string>
 				<key>Arguments</key>
@@ -138,7 +138,7 @@
 					<key>destination_path</key>
 					<string>%pkgroot%</string>
 				</dict>
-			</dict>
+			</dict>-->
 <!--			<dict>
 				<key>Processor</key>
 				<string>Copier</string>
