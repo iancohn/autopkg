@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Creates .bes file for Kaltura Personal Capture installer and uploads it to BigFix</string>
+    <key>Identifier</key>
+    <string>edu.psu.bigfix.KalturaPersonalCapture</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>Kaltura Personal Capture</string>
+        <key>SHORTNAME</key>
+        <string>Kaltura-Capture</string>
+        <key>ARCHITECTURE</key>
+        <string>x86_x64</string>
+        <key>PLATFORM</key>
+        <string>Windows</string>
+        <key>bes_icon</key>
+        <string>http://bes.win.psu.edu:52311/ManualUploads/PSU/Icons/Kaltura-Capture.png</string>
+        <key>OfferCategory</key>
+        <string>Media</string>
+        <key>bes_ssa</key>
+        <string>True</string>
+        <key>bes_ssaaction</key>
+        <string>DefaultAction</string>
+        <key>LICENSE</key>
+        <string>%NAME% is freeware.</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>1.4.0</string>
+    <key>ParentRecipe</key>
+    <string>edu.psu.download.KalturaPersonalCapture</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>Copier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>source_path</key>
+                <string>%pathname%</string>
+                <key>destination_path</key>
+                <string>/Volumes/ManualUploads$/PSU-Windows/Microsoft/Edge/</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>OfferDescriptionHTML</key>
+                <string><![CDATA[<P><STRONG><FONT size=3>About Microsoft Edge</FONT></STRONG></P>
+      <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+      <P><FONT size=2>The browser and search engine for business is here. Empower your people through world class compatibility &amp; performance with Microsoft security. The newly redesigned Microsoft Edge contains features such as:</FONT></P>
+      <P><FONT size=2><FONT size=2><STRONG>Internet Explorer mode: </STRONG></FONT></FONT><FONT size=2><FONT size=2>No need to open a second browser. Open mission critical legacy sites and modern sites in one window.</FONT></FONT></P>
+      <P><FONT size=2><FONT size=2><STRONG>Work across platforms: </STRONG></FONT></FONT><FONT size=2><FONT size=2>Available on supported versions of Windows, macOS, iOS, and Android with settings that roam.</FONT></FONT></P>
+      <P><FONT size=2><STRONG>Even more extensions: </STRONG>Microsoft Edge supports extensions from multiple stores so you can work the way you want.</FONT><FONT size=2></P></BLOCKQUOTE></FONT>
+      <P><FONT color=#0080ff size=3><STRONG>Licensing</STRONG></FONT></P>
+      <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+      <P><FONT size=2>%LICENSE%</FONT></P></BLOCKQUOTE>
+      <P><STRONG><FONT size=3>About This Task</FONT></STRONG></P>
+      <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+      <P>This task will install/upgrade: %NAME% %version%<BR><BR>This task is applicable on: %PLATFORM%</P></BLOCKQUOTE>]]></string>
+                <key>bes_overrideurl</key>
+                <string>http://bes.win.psu.edu:52311/ManualUploads/PSU-Windows/Microsoft/Edge/%filename%</string>
+                <key>bes_filename</key>
+                <string>%filename%</string>
+                <!-- Enable to get prefetch from different file
+                <key>bes_softwareinstaller</key>
+                <string>%SHORTNAME%.exe</string>-->
+                <key>bes_version</key>
+                <string>%version%</string>
+                <key>bes_title</key>
+                <string>Install/Upgrade: %NAME% %version% - %PLATFORM%</string>
+                <key>bes_description</key>
+                <string><![CDATA[<P><STRONG><FONT size=3>About %NAME%</FONT></STRONG></P>
+        <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+        <P><FONT size=2>The browser and search engine for business is here. Empower your people through world class compatibility &amp; performance with Microsoft security. The newly redesigned Microsoft Edge contains features such as:</FONT></P>
+        <P><FONT size=2><FONT size=2><STRONG>Internet Explorer mode: </STRONG></FONT></FONT><FONT size=2><FONT size=2>No need to open a second browser. Open mission critical legacy sites and modern sites in one window.</FONT></FONT></P>
+        <P><FONT size=2><FONT size=2><STRONG>Work across platforms: </STRONG></FONT></FONT><FONT size=2><FONT size=2>Available on supported versions of Windows, macOS, iOS, and Android with settings that roam.</FONT></FONT></P>
+        <P><FONT size=2><STRONG>Even more extensions: </STRONG>Microsoft Edge supports extensions from multiple stores so you can work the way you want.</FONT><FONT size=2></P></BLOCKQUOTE></FONT>
+        <P><FONT color=#0080ff size=3><STRONG>Licensing</STRONG></FONT></P>
+        <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+        <P><FONT size=2>%LICENSE%</FONT></P></BLOCKQUOTE>
+        <P><STRONG><FONT size=3>About This Task</FONT></STRONG></P>
+        <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+        <P>This task will install/upgrade: %NAME% %version% (%ARCHITECTURE%)<BR><BR>This task is applicable on: %PLATFORM%</P></BLOCKQUOTE>
+        <P><FONT size=3><STRONG>Action Description</STRONG></FONT></P>
+        <UL>
+        <LI><FONT size=2><STRONG>Action1: Install/upgrade.</STRONG></FONT></LI></UL>
+        <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+        <P><FONT size=2>This action installs %NAME%.</FONT></P></BLOCKQUOTE>
+        <UL dir=ltr>
+        <LI><FONT size=2><STRONG>Action10: Make available in Self Service.</STRONG></FONT></LI></UL>
+        <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+        <P dir=ltr><FONT size=2>This action performs the same action as Action1 with Self Service deployment options set.</FONT></P></BLOCKQUOTE>]]></string>
+                <key>bes_category</key>
+                <string>%OfferCategory%</string>
+                <key>bes_relevance</key>
+                <array>
+                    <string>windows of operating system</string>
+                    <string>x64 of operating system</string>
+                    <string>not member of group 47448 /*CLM Division*/ of sites</string>
+                    <string>not exists key whose (value "DisplayName" of it as string contains "%NAME%" AND (it &gt;= "%version%" as version) of (value "DisplayVersion" of it as string as version)) of key "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall" of registry</string>
+                </array>
+                <key>bes_actions</key>
+                <dict>
+                    <key>1</key>
+                    <dict>
+                        <key>Description</key>
+                        <array>
+                            <string></string>
+                            <string>Install/Upgrade</string>
+                            <string>.</string>
+                        </array>
+                        <key>ActionName</key>
+                        <string>DefaultAction</string>
+                        <key>ActionNumber</key>
+                        <string>Action1</string>
+                        <key>ActionScript</key>
+                        <string>
+//Run Installer
+waithidden "{pathname of system folder &amp; "\msiexec.exe"}" /i "{pathname of file whose(name of it as lowercase ends with ".msi") of folder "__Download" of client folder of current site}" /qn /L*v "{(pathname of folder "__BESData\__Global\Logs" of parent folder of client) &amp; "\software_MSEdge.txt"}"
+
+//set SysMan tracking info
+regset64 "[HKEY_LOCAL_MACHINE\SOFTWARE\PSU\Sysman\Applications]" "{value of header "Subject" of active action}"="Install/Upgrade - {(month of it as two digits &amp; "/" &amp; day_of_month of it as two digits &amp; "/" &amp; year of it as string) of date (local time zone) of now}"</string>
+                   </dict>
+               </dict>
+            </dict>
+            <key>Processor</key>
+            <string>AutoPkgBESEngine</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>BESImporter</string>
+            <key>Arguments</key>
+            <dict>
+                <key>bes_file</key>
+                <string>%bes_file%</string>
+                <key>bes_customsite</key>
+                <string>SysManDev</string>
+            </dict>
+        </dict>
+    </array>
+</dict>
+</plist>
