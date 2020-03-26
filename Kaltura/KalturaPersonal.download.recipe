@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Download the latest version of Kaltura Personal</string>
+	<key>Identifier</key>
+	<string>edu.psu.download.KalturaPersonalCapture</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>Kaltura Personal Capture</string>
+		<key>SEARCH_URL</key>
+		<string>https://www.kaltura.com/content/static/downloads/personal-admin.html</string>
+		<key>SEARCH_PATTERN</key>
+		<string>(?P&lt;url&gt;https.*?KalturaCapture_admin_.*?\.msi)</string>
+	</dict>
+	<key>MiniumumVersion</key>
+	<string>1.0</string>
+	<key>Process</key>
+	<array>
+		<dict>
+				<key>Processor</key>
+				<string>URLTextSearcher</string>
+				<key>Arguments</key>
+				<dict>
+						<key>url</key>
+						<string>%SEARCH_URL%</string>
+						<key>re_pattern</key>
+						<string>%SEARCH_PATTERN%</string>
+				</dict>
+		</dict>
+		<dict>
+				<key>Processor</key>
+				<string>URLDownloader</string>
+				<key>Arguments</key>
+				<dict>
+						<key>url</key>
+						<string>%url%</string>
+				</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
