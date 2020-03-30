@@ -35,6 +35,15 @@
     <array>
         <dict>
             <key>Processor</key>
+            <string>com.github.hansen-m.SharedProcessors/MSIInfoVersionProvider</string>
+            <key>Arguments</key>
+            <dict>
+                <key>msi_path</key>
+                <string>%pathname%</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
             <string>Copier</string>
             <key>Arguments</key>
             <dict>
@@ -91,7 +100,7 @@
                     <string>windows of operating system</string>
                     <string>x64 of operating system</string>
                     <string>not member of group 47448 /*CLM Division*/ of sites</string>
-                    <string>not exists keys whose (value "DisplayName" of it as string starts with "Kaltura Capture" AND value "Publisher" of it as string contains "Kaltura" AND (value "DisplayVersion" of it as string as version) >= "4.1.6" as version) of keys "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall" of native registry</string>
+                    <string>not exists keys whose (value "DisplayName" of it as string starts with "Kaltura Capture" AND value "Publisher" of it as string contains "Kaltura" AND (value "DisplayVersion" of it as string as version) >= "%version%" as version) of keys "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall" of native registry</string>
                 </array>
                 <key>bes_actions</key>
                 <dict>
