@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Download the latest version of Kaltura Personal</string>
+	<string>Download the latest version of Kaltura Capture</string>
 	<key>Identifier</key>
-	<string>edu.psu.download.KalturaPersonalCapture</string>
+	<string>edu.psu.download.KalturaCapture</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
-		<string>Kaltura Personal Capture</string>
+		<string>Kaltura Capture</string>
 		<key>SEARCH_URL</key>
 		<string>https://www.kaltura.com/content/static/downloads/personal-admin.html</string>
 		<key>SEARCH_PATTERN</key>
