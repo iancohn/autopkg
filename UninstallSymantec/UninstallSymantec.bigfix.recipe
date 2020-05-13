@@ -183,8 +183,18 @@ action may require restart</string>
 </DIV>]]></string>
 			 <key>OfferCategory</key>
 			 <string>Uninstall</string>
-			 <key></key>
 			</dict>
+		</dict>
+		<dict>
+				<key>Processor</key>
+				<string>BESImporter</string>
+				<key>Arguments</key>
+				<dict>
+						<key>bes_file</key>
+						<string>%bes_file%</string>
+						<key>bes_customsite</key>
+						<string>SysManDev</string>
+				</dict>
 		</dict>
 	</array>
 </dict>
