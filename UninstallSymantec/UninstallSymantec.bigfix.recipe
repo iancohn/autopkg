@@ -3,28 +3,188 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Recipe description</string>
+	<string>Create .bes file to run Symantec's Removal Tool and upload to BigFix</string>
 	<key>Identifier</key>
-	<string>local.UninstallSymantec</string>
+	<string>edu.psu.bigfix.SymantecRemovalTool</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
-		<string>UninstallSymantec</string>
+		<string>Uninstall All Symantec Products</string>
 	</dict>
 	<key>MiniumumVersion</key>
-	<string>1.0</string>
+	<string>1.4</string>
+	<key>ParentRecipe</key>
+	<string>edu.psu.download.SymantecRemovalTool</string>
 	<key>Process</key>
 	<array>
 		<dict>
+			<key>Processor</key>
+			<string>Unarchiver</string>
 			<key>Arguments</key>
 			<dict>
-				<key>Argument1</key>
-				<string>Value1</string>
-				<key>Argument2</key>
-				<string>Value2</string>
+				<key>archive_path</key>
+				<string>%pathname%</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/TEMP</string>
+				<key>archive_format</key>
+				<string>zip</string>
+				<key>purge_destination</key>
+				<string>True</string>
 			</dict>
+		</dict>
+		<dict>
 			<key>Processor</key>
-			<string>ProcessorName</string>
+			<string>URLTextSearcher</string>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>file://%destination_path%/SymantecRemovalTool/ReadMe.txt</string>
+				<key>re_pattern</key>
+				<string> (?P&lt;version&gt;[0-9\.]{1,15}) </string>
+				<key>result_output_var_name</key>
+				<string>version</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>Copier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>source_path</key>
+				<string>%pathname%</string>
+				<key>destination_path</key>
+				<string>/Volumes/ManualUploads$/PSU-Mac/AutoPkg/Symantec/</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>AutoPkgBESEngine</string>
+			<key>Arguments</key>
+			<dict>
+				<key>bes_overrideurl</key>
+				<string>http://bes.win.psu.edu:52311/ManualUploads/PSU-Mac/AutoPkg/%filename%</string>
+				<key>bes_filename</key>
+				<string>%filename%</string>
+				<key>bes_version</key>
+				<string>%version%</string>
+				<key>bes_title</key>
+				<string>Uninstall: All Symantec Products - Run Symantec Removal Tool %version% - macOS</string>
+				<key>bes_description</key>
+				<string><![CDATA[<DIV class=subsection><P><FONT size=3><STRONG>Uninstall Symantec Products</STRONG></FONT></P><FONT size=2>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>This task is will uninstall all Symantec Products from macOS clients.</P>
+<P></P></BLOCKQUOTE>
+<P><STRONG><FONT size=3>About This Task</FONT></P></STRONG>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>This task will Uninstall: All Symantec Products - Run Symantec Removal Tool %version% - macOS<BR></P>
+<P>This task is applicable on: macOS 10.12 or later</P></BLOCKQUOTE>
+<P><FONT size=3><STRONG>Action Description</STRONG></FONT></P>
+<UL><LI><FONT size=2><STRONG>Action1: Uninstall.</STRONG></FONT></LI></UL>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr><P><FONT size=2>This action uninstalls all Symantec Products. A restart is required but is not enforced. Computers will report a status of "Pending Restart" until the user has restarted the computer.</FONT></P></BLOCKQUOTE>
+<UL><LI><FONT size=2><STRONG>Action2: Uninstall and restart.</STRONG></FONT></LI></UL>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr><P><FONT size=2>This action uninstalls all Symantec Products and restarts immediately.</FONT></P></BLOCKQUOTE>
+<UL><LI><FONT size=2><STRONG>Action10: Make available in Self Service.</STRONG></FONT></LI></UL>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr><P><FONT size=2>This action performs the same action as Action2 with Self Service deployment options set.</FONT></P></BLOCKQUOTE>
+</DIV>]]></string>
+				<key>bes_category</key>
+				<string>Uninstall</string>
+				<key>bes_relevance</key>
+				<array>
+					<string>mac of operating system</string>
+					<string>exists folder "/Applications/Symantec Solutions"</string>
+				</array>
+				<key>bes_actions</key>
+				<dict>
+						<key>1</key>
+						<dict>
+								<key>Description</key>
+								<array>
+										<string></string>
+										<string>Uninstall</string>
+										<string>.</string>
+								</array>
+								<key>ActionName</key>
+								<string>Action</string>
+								<key>ActionNumber</key>
+								<string>Action1</string>
+								<key>ActionScript</key>
+								<string>
+
+// Extract to location
+delete "/tmp/RemoveSymantecMacFiles.zip"
+move "__Download/RemoveSymantecMacFiles.zip" "/tmp/RemoveSymantecMacFiles.zip"
+wait /usr/bin/unzip -qnj /tmp/RemoveSymantecMacFiles.zip RemoveSymantecMacFiles/RemoveSymantecMacFiles.command -d /tmp
+
+// Uninstall
+wait /tmp/RemoveSymantecMacFiles.command -q
+
+// Cleanup
+delete "/tmp/RemoveSymantecMacFiles.command"
+delete "/tmp/RemoveSymantecMacFiles.zip"
+
+// Software Sharing Tracking
+wait /bin/sh -c "/usr/bin/defaults write '/Library/Sysman/Sysman' 'Tasks' -array-add 'Software Sharing - {value of header "Subject" of active action} -- Install/Upgrade - {(month of it as two digits &amp; "/" &amp; day_of_month of it as two digits &amp; "/" &amp; year of it as string) of date (local time zone) of now}'"
+wait /bin/sh -c "/bin/chmod 755 '/Library/Sysman/Sysman.plist'"
+wait /bin/sh -c "/bin/chmod 755 '/Library/Sysman'"
+
+action requires restart</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>Description</key>
+							<array>
+								<string></string>
+								<string>Uninstall</string>
+								<string> and restart immediately.</string>
+							</array>
+							<key>ActionName</key>
+							<string>DefaultAction</string>
+							<key>ActionNumber</key>
+							<string>Action2</string>
+							<key>ActionScript</key>
+							<string>
+
+// Extract to location
+delete "/tmp/RemoveSymantecMacFiles.zip"
+move "__Download/RemoveSymantecMacFiles.zip" "/tmp/RemoveSymantecMacFiles.zip"
+wait /usr/bin/unzip -qnj /tmp/RemoveSymantecMacFiles.zip RemoveSymantecMacFiles/RemoveSymantecMacFiles.command -d /tmp
+
+// Uninstall
+wait /tmp/RemoveSymantecMacFiles.command -E -r
+
+// Cleanup
+delete "/tmp/RemoveSymantecMacFiles.command"
+delete "/tmp/RemoveSymantecMacFiles.zip"
+
+// Software Sharing Tracking
+wait /bin/sh -c "/usr/bin/defaults write '/Library/Sysman/Sysman' 'Tasks' -array-add 'Software Sharing - {value of header "Subject" of active action} -- Install/Upgrade - {(month of it as two digits &amp; "/" &amp; day_of_month of it as two digits &amp; "/" &amp; year of it as string) of date (local time zone) of now}'"
+wait /bin/sh -c "/bin/chmod 755 '/Library/Sysman/Sysman.plist'"
+wait /bin/sh -c "/bin/chmod 755 '/Library/Sysman'"
+
+action may require restart</string>
+						</dict>
+			  </dict>
+				<key>bes_ssa</key>
+				<string>True</string>
+				<key>bes_icon</key>
+				<string>http://bes.win.psu.edu:52311/ManualUploads/PSU/Icons/Symantec-uninstall.png</string>
+				<key>bes_ssaaction</key>
+				<string>DefaultAction</string>
+				<key>OfferDescriptionHTML</key>
+				<string><![CDATA[<DIV class=subsection><P><FONT size=3><STRONG>Uninstall Symantec Products</STRONG></FONT></P><FONT size=2>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>This task is will uninstall all Symantec Products from macOS clients.</P>
+<P></P></BLOCKQUOTE>
+<P><STRONG><FONT size=3>About This Task</FONT></P></STRONG>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>This task will Uninstall: All Symantec Products - Run Symantec Removal Tool %version% - macOS<BR></P>
+<P>This task is applicable on: macOS 10.12 or later</P>
+<P>This task will restart immediately following task completion.  Please ensure all work is saved prior to taking this action.</P></BLOCKQUOTE>
+</DIV>]]></string>
+			 <key>OfferCategory</key>
+			 <string>Uninstall</string>
+			 <key></key>
+			</dict>
 		</dict>
 	</array>
 </dict>
