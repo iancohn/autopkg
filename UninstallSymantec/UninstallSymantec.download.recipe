@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Download the latest version of Symantec's Removal Tool</string>
+	<key>Identifier</key>
+	<string>edu.psu.download.SymantecRemovalTool</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>SymantecRemovalTool</string>
+		<key>SEARCH_URL</key>
+		<string>https://knowledge.broadcom.com/external/article/151387/remove-symantec-software-for-mac-using-r.html</string>
+		<key>SEARCH_PATTERN</key>
+		<string>\_\_SymantecRemovalTool\.zip[\s\S]*?uniqueFileId\=\"(?P&lt;fileid&gt;[0-9]{5,16}?)\"[\s\S]*?</string>
+	</dict>
+	<key>MiniumumVersion</key>
+	<string>1.0</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>%SEARCH_URL%</string>
+				<key>re_pattern</key>
+				<string>%SEARCH_PATTERN%</string>
+				<key>result_output_var_name</key>
+				<string>fileid</string>
+			</dict>
+		</dict>
+		<dict>
+				<key>Processor</key>
+				<string>URLDownloader</string>
+				<key>Arguments</key>
+				<dict>
+						<key>url</key>
+						<string>https://api-broadcom-ca.wolkenservicedesk.com/es/attachments/get_attachment_content?uniqueFileId=%fileid%</string>
+						<key>filename</key>
+						<string>SymantecRemovalTool.zip</string>
+				</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
